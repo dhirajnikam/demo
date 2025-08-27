@@ -282,17 +282,27 @@
                 };
                 window.requestAnimationFrame(step);
             }
-            const counterObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        animateValue(document.getElementById('co2-saved'), 0, 15000, 2000);
-                        animateValue(document.getElementById('energy-audits'), 0, 30, 2000);
-                        animateValue(document.getElementById('faculty-members'), 0, 10, 2000);
-                        counterObserver.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.5 });
-            counterObserver.observe(document.getElementById('home'));
+            async function initCounters() {
+                try {
+                    const response = await fetch('metrics.json', { cache: 'no-cache' });
+                    const metrics = await response.json();
+                    const counterObserver = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                Object.entries(metrics).forEach(([id, value]) => {
+                                    const el = document.getElementById(id);
+                                    if (el) animateValue(el, 0, value, 2000);
+                                });
+                                counterObserver.unobserve(entry.target);
+                            }
+                        });
+                    }, { threshold: 0.5 });
+                    counterObserver.observe(document.getElementById('home'));
+                } catch (err) {
+                    console.error('Failed to load metrics', err);
+                }
+            }
+            initCounters();
 
             const teamGrid = document.getElementById('team-grid');
             const teamFilters = document.getElementById('team-filters');
