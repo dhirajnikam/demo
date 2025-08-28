@@ -1,461 +1,1084 @@
 <!DOCTYPE html>
-<html lang="en" class="dark"> <!-- Set to dark mode permanently -->
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CREED - Center of Research for Energy Efficiency and Decarbonization</title>
+<html lang="en" class="dark">
+  <!-- Set to dark mode permanently -->
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="assets/CREED_LOGO_1.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      CREED - Center of Research for Energy Efficiency and Decarbonization
+    </title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <style>
-        :root {
-            --bg-dark: #0a0a1a;
-            --text-dark-primary: #e0e0e0;
-            --accent: #16a34a;
-            --accent-hover: #15803d;
-            --card-dark: rgba(255, 255, 255, 0.05);
-            --border-dark: rgba(255, 255, 255, 0.1);
-        }
-        html { scroll-behavior: smooth; }
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-dark);
-            color: var(--text-dark-primary);
-        }
-        
-        .hero-bg {
-            background: linear-gradient(rgba(10, 10, 26, 0.8), rgba(10, 10, 26, 1)), url('https://iitrpr.ac.in/creed/static/media/hero-bg.e7971b63215f7c0a520a.jpg') no-repeat center center/cover;
-        }
-        .glass-effect {
-            background: var(--card-dark);
-            border: 1px solid var(--border-dark);
-        }
-        .header-scrolled {
-            background-color: rgba(10, 10, 26, 0.8);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-        }
-        .nav-link.active { color: var(--accent); }
+      :root {
+        --bg-dark: #0a0a1a;
+        --text-dark-primary: #e0e0e0;
+        --accent: #16a34a;
+        --accent-hover: #15803d;
+        --card-dark: rgba(255, 255, 255, 0.05);
+        --border-dark: rgba(255, 255, 255, 0.1);
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: var(--bg-dark);
+        color: var(--text-dark-primary);
+      }
 
-        .accent-glow { box-shadow: 0 0 15px 5px rgba(22, 163, 74, 0.4); }
-        .faq-item .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.5s ease-in-out; }
-        .faq-item.active .faq-answer { max-height: 500px; }
-        .faq-item .faq-icon { transition: transform 0.3s ease; }
-        .faq-item.active .faq-icon { transform: rotate(45deg); }
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: var(--bg-dark); }
-        ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: var(--accent-hover); }
+      .hero-bg {
+        background: linear-gradient(rgba(10, 10, 26, 0.8), rgba(10, 10, 26, 1)),
+          url("assets/hero-bg.jpg") no-repeat center center/cover;
+      }
+      .glass-effect {
+        background: var(--card-dark);
+        border: 1px solid var(--border-dark);
+      }
+      .header-scrolled {
+        background-color: rgba(10, 10, 26, 0.8);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+      }
+      .nav-link.active {
+        color: var(--accent);
+      }
 
-        /* Cursor Glow Effect */
-        #cursor-glow {
-            position: fixed;
-            width: 400px;
-            height: 400px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(22, 163, 74, 0.15) 0%, rgba(22, 163, 74, 0) 60%);
-            pointer-events: none;
-            transform: translate(-50%, -50%);
-            transition: opacity 0.3s;
-            z-index: 9999;
-        }
+      .accent-glow {
+        box-shadow: 0 0 15px 5px rgba(22, 163, 74, 0.4);
+      }
+      .faq-item .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease-in-out;
+      }
+      .faq-item.active .faq-answer {
+        max-height: 500px;
+      }
+      .faq-item .faq-icon {
+        transition: transform 0.3s ease;
+      }
+      .faq-item.active .faq-icon {
+        transform: rotate(45deg);
+      }
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: var(--bg-dark);
+      }
+      ::-webkit-scrollbar-thumb {
+        background: var(--accent);
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: var(--accent-hover);
+      }
+
+      /* Cursor Glow Effect */
+      #cursor-glow {
+        position: fixed;
+        width: 400px;
+        height: 400px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle,
+          rgba(22, 163, 74, 0.15) 0%,
+          rgba(22, 163, 74, 0) 60%
+        );
+        pointer-events: none;
+        transform: translate(-50%, -50%);
+        transition: opacity 0.3s;
+        z-index: 9999;
+      }
     </style>
-</head>
-<body class="antialiased">
+  </head>
+  <body class="antialiased">
     <div id="cursor-glow"></div>
     <!-- Header -->
-    <header id="header" class="header fixed w-full top-0 z-50 p-4 transition-all duration-300">
-        <div class="container mx-auto flex justify-between items-center">
-            <a href="/creed" class="text-2xl font-bold text-white">CREED</a>
-            <nav class="hidden md:flex items-center space-x-8">
-                <a href="#home" class="nav-link text-gray-300 hover:text-green-400 transition">Home</a>
-                <a href="#about" class="nav-link text-gray-300 hover:text-green-400 transition">About</a>
-                <a href="#services" class="nav-link text-gray-300 hover:text-green-400 transition">Services</a>
-                <a href="#projects" class="nav-link text-gray-300 hover:text-green-400 transition">Projects</a>
-                <a href="#team" class="nav-link text-gray-300 hover:text-green-400 transition">Team</a>
-                <a href="#news" class="nav-link text-gray-300 hover:text-green-400 transition">News</a>
-                <a href="#contact" class="nav-link text-gray-300 hover:text-green-400 transition">Contact</a>
-            </nav>
-            <div class="md:hidden flex items-center gap-4">
-                <button id="mobile-menu-button" class="text-white">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-                </button>
-            </div>
+    <header
+      id="header"
+      class="header fixed w-full top-0 z-50 p-4 transition-all duration-300"
+    >
+      <div class="container mx-auto flex justify-between items-center">
+        <a href="/creed" class="text-2xl font-bold text-white">CREED</a>
+        <nav class="hidden md:flex items-center space-x-8">
+          <a
+            href="#home"
+            class="nav-link text-gray-300 hover:text-green-400 transition"
+            >Home</a
+          >
+          <a
+            href="#about"
+            class="nav-link text-gray-300 hover:text-green-400 transition"
+            >About</a
+          >
+          <a
+            href="#services"
+            class="nav-link text-gray-300 hover:text-green-400 transition"
+            >Services</a
+          >
+          <a
+            href="#projects"
+            class="nav-link text-gray-300 hover:text-green-400 transition"
+            >Projects</a
+          >
+          <a
+            href="#team"
+            class="nav-link text-gray-300 hover:text-green-400 transition"
+            >Team</a
+          >
+          <a
+            href="#news"
+            class="nav-link text-gray-300 hover:text-green-400 transition"
+            >News</a
+          >
+          <a
+            href="#contact"
+            class="nav-link text-gray-300 hover:text-green-400 transition"
+            >Contact</a
+          >
+        </nav>
+        <div class="md:hidden flex items-center gap-4">
+          <button id="mobile-menu-button" class="text-white">
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16m-7 6h7"
+              ></path>
+            </svg>
+          </button>
         </div>
-        <div id="mobile-menu" class="hidden md:hidden mt-4 bg-gray-900 rounded-lg shadow-lg">
-            <a href="#home" class="nav-link-mobile block py-2 px-4 text-sm text-gray-300 hover:bg-gray-800">Home</a>
-            <a href="#about" class="nav-link-mobile block py-2 px-4 text-sm text-gray-300 hover:bg-gray-800">About</a>
-            <a href="#services" class="nav-link-mobile block py-2 px-4 text-sm text-gray-300 hover:bg-gray-800">Services</a>
-            <a href="#projects" class="nav-link-mobile block py-2 px-4 text-sm text-gray-300 hover:bg-gray-800">Projects</a>
-            <a href="#team" class="nav-link-mobile block py-2 px-4 text-sm text-gray-300 hover:bg-gray-800">Team</a>
-            <a href="#news" class="nav-link-mobile block py-2 px-4 text-sm text-gray-300 hover:bg-gray-800">News</a>
-            <a href="#contact" class="nav-link-mobile block py-2 px-4 text-sm text-gray-300 hover:bg-gray-800">Contact</a>
-            <a href="#contact" class="block py-3 px-4 text-center bg-green-600 text-white font-semibold rounded-b-lg hover:bg-green-700 transition">Get Started</a>
-        </div>
+      </div>
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden mt-4 bg-gray-900 rounded-lg shadow-lg"
+      >
+        <a
+          href="#home"
+          class="nav-link-mobile block py-2 px-4 text-sm text-gray-300 hover:bg-gray-800"
+          >Home</a
+        >
+        <a
+          href="#about"
+          class="nav-link-mobile block py-2 px-4 text-sm text-gray-300 hover:bg-gray-800"
+          >About</a
+        >
+        <a
+          href="#services"
+          class="nav-link-mobile block py-2 px-4 text-sm text-gray-300 hover:bg-gray-800"
+          >Services</a
+        >
+        <a
+          href="#projects"
+          class="nav-link-mobile block py-2 px-4 text-sm text-gray-300 hover:bg-gray-800"
+          >Projects</a
+        >
+        <a
+          href="#team"
+          class="nav-link-mobile block py-2 px-4 text-sm text-gray-300 hover:bg-gray-800"
+          >Team</a
+        >
+        <a
+          href="#news"
+          class="nav-link-mobile block py-2 px-4 text-sm text-gray-300 hover:bg-gray-800"
+          >News</a
+        >
+        <a
+          href="#contact"
+          class="nav-link-mobile block py-2 px-4 text-sm text-gray-300 hover:bg-gray-800"
+          >Contact</a
+        >
+        <a
+          href="#contact"
+          class="block py-3 px-4 text-center bg-green-600 text-white font-semibold rounded-b-lg hover:bg-green-700 transition"
+          >Get Started</a
+        >
+      </div>
     </header>
 
     <main>
-        <!-- Hero Section -->
-        <section id="home" class="hero-bg min-h-screen flex items-center justify-center text-center pt-20">
-            <div class="container mx-auto px-4">
-                <h1 data-aos="fade-down" class="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-4 leading-tight text-white" style="text-shadow: 0 0 20px rgba(0,0,0,0.2);">Leading the charge towards sustainable solutions.</h1>
-                <p data-aos="fade-up" data-aos-delay="200" class="text-lg md:text-xl max-w-3xl mx-auto mb-8 text-gray-300">The Center of Research for Energy Efficiency and Decarbonization (CREED) at IIT Ropar is igniting progress towards a brighter, more sustainable world.</p>
-                <div data-aos="fade-up" data-aos-delay="400" class="flex justify-center gap-4 mb-12">
-                    <a href="#services" class="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-8 rounded-lg transition text-lg accent-glow">Our Services</a>
-                    <a href="#about" class="bg-transparent border-2 border-green-500 hover:bg-green-500 text-white hover:text-white font-semibold py-3 px-8 rounded-lg transition text-lg">Learn More</a>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto mt-16">
-                    <div data-aos="zoom-in" data-aos-delay="500" class="glass-effect p-6 rounded-xl"><h3 id="co2-saved" class="text-4xl font-bold text-green-400">0+</h3><p class="text-gray-400">Tons of CO₂ Saved</p></div>
-                    <div data-aos="zoom-in" data-aos-delay="600" class="glass-effect p-6 rounded-xl"><h3 id="energy-audits" class="text-4xl font-bold text-green-400">0+</h3><p class="text-gray-400">Energy Audits Completed</p></div>
-                    <div data-aos="zoom-in" data-aos-delay="700" class="glass-effect p-6 rounded-xl"><h3 id="faculty-members" class="text-4xl font-bold text-green-400">0+</h3><p class="text-gray-400">Expert Faculty Members</p></div>
-                </div>
+      <!-- Hero Section -->
+      <section
+        id="home"
+        class="hero-bg min-h-screen flex items-center justify-center text-center pt-20"
+      >
+        <div class="container mx-auto px-4">
+          <h1
+            data-aos="fade-down"
+            class="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-4 leading-tight text-white"
+            style="text-shadow: 0 0 20px rgba(0, 0, 0, 0.2)"
+          >
+            Leading the charge towards sustainable solutions.
+          </h1>
+          <p
+            data-aos="fade-up"
+            data-aos-delay="200"
+            class="text-lg md:text-xl max-w-3xl mx-auto mb-8 text-gray-300"
+          >
+            The Center of Research for Energy Efficiency and Decarbonization
+            (CREED) at IIT Ropar is igniting progress towards a brighter, more
+            sustainable world.
+          </p>
+          <div
+            data-aos="fade-up"
+            data-aos-delay="400"
+            class="flex justify-center gap-4 mb-12"
+          >
+            <a
+              href="#services"
+              class="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-8 rounded-lg transition text-lg accent-glow"
+              >Our Services</a
+            >
+            <a
+              href="#about"
+              class="bg-transparent border-2 border-green-500 hover:bg-green-500 text-white hover:text-white font-semibold py-3 px-8 rounded-lg transition text-lg"
+              >Learn More</a
+            >
+          </div>
+          <div
+            class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto mt-16"
+          >
+            <div
+              data-aos="zoom-in"
+              data-aos-delay="500"
+              class="glass-effect p-6 rounded-xl"
+            >
+              <h3 id="co2-saved" class="text-4xl font-bold text-green-400">
+                0+
+              </h3>
+              <p class="text-gray-400">Tons of CO₂ Saved</p>
             </div>
-        </section>
+            <div
+              data-aos="zoom-in"
+              data-aos-delay="600"
+              class="glass-effect p-6 rounded-xl"
+            >
+              <h3 id="energy-audits" class="text-4xl font-bold text-green-400">
+                0+
+              </h3>
+              <p class="text-gray-400">Energy Audits Completed</p>
+            </div>
+            <div
+              data-aos="zoom-in"
+              data-aos-delay="700"
+              class="glass-effect p-6 rounded-xl"
+            >
+              <h3
+                id="faculty-members"
+                class="text-4xl font-bold text-green-400"
+              >
+                0+
+              </h3>
+              <p class="text-gray-400">Expert Faculty Members</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-        <!-- About Section -->
-        <section id="about" class="py-20">
-            <div class="container mx-auto px-4">
-                <div data-aos="fade-up" class="text-center mb-12"><h2 class="text-4xl font-bold text-white">About CREED</h2><p class="text-green-400">Advancing Energy Efficiency and Decarbonization</p></div>
-                <div class="flex flex-col md:flex-row items-center gap-12">
-                    <div data-aos="fade-right" class="md:w-1/2">
-                        <img src="https://iitrpr.ac.in/creed/static/media/about-creed.1598da6b6935240a8117.jpg" alt="IIT Ropar Campus" class="rounded-xl shadow-lg w-full"/>
-                    </div>
-                    <div data-aos="fade-left" class="md:w-1/2 text-lg text-gray-300 space-y-4">
-                        <p>Established in 2023 at the prestigious Indian Institute of Technology (IIT) Ropar, CREED is at the forefront of sustainable energy research.</p>
-                        <p>Our mission is to be a global leader in energy research and decarbonization, fostering impactful collaborations between academia and industry to drive initiatives that promote sustainable energy practices for a greener tomorrow.</p>
-                    </div>
-                </div>
+      <!-- About Section -->
+      <section id="about" class="py-20">
+        <div class="container mx-auto px-4">
+          <div data-aos="fade-up" class="text-center mb-12">
+            <h2 class="text-4xl font-bold text-white">About CREED</h2>
+            <p class="text-green-400">
+              Advancing Energy Efficiency and Decarbonization
+            </p>
+          </div>
+          <div class="flex flex-col md:flex-row items-center gap-12">
+            <div data-aos="fade-right" class="md:w-1/2">
+              <img
+                src="assets/about.jpg"
+                alt="IIT Ropar Campus"
+                class="rounded-xl shadow-lg w-full"
+                onerror="this.onerror=null;this.src='https://placehold.co/1200x700/1a1a2e/ffffff?text=Image+Unavailable';"
+              />
             </div>
-        </section>
-            
-        <!-- Services Section -->
-        <section id="services" class="py-20 bg-black/20">
-            <div class="container mx-auto px-4">
-                <div data-aos="fade-up" class="text-center mb-12"><h2 class="text-4xl font-bold text-white">Our Services</h2><p class="text-green-400">Tailored Solutions for a Sustainable Future</p></div>
-                <div class="grid md:grid-cols-3 gap-8">
-                    <div data-aos="fade-up" data-aos-delay="100" class="glass-effect p-8 rounded-xl hover:border-green-500/50 transition-all duration-300 transform hover:-translate-y-2 flex flex-col items-center text-center">
-                        <img src="https://iitrpr.ac.in/creed/static/media/kisem.d4e339f408282e73f45f.jpg" alt="KISEM Project" class="w-full h-40 object-cover rounded-lg mb-4"/>
-                        <h3 class="text-2xl font-bold text-white mb-4">KISEM Project</h3>
-                        <p class="text-gray-400">In collaboration with IIT Madras and Kotak Mahindra Bank, we provide comprehensive, free energy audits for selected MSME industries.</p>
-                    </div>
-                    <div data-aos="fade-up" data-aos-delay="200" class="glass-effect p-8 rounded-xl hover:border-green-500/50 transition-all duration-300 transform hover:-translate-y-2 flex flex-col items-center text-center">
-                        <img src="https://iitrpr.ac.in/creed/static/media/energy-audit-pro.40b30d2203112c37311c.jpg" alt="Energy Audit Pro" class="w-full h-40 object-cover rounded-lg mb-4"/>
-                        <h3 class="text-2xl font-bold text-white mb-4">Energy Audit Pro</h3>
-                        <p class="text-gray-400">A complete energy audit solution with detailed reporting, on-site assessments, and implementation support from our expert team.</p>
-                    </div>
-                    <div data-aos="fade-up" data-aos-delay="300" class="glass-effect p-8 rounded-xl hover:border-green-500/50 transition-all duration-300 transform hover:-translate-y-2 flex flex-col items-center text-center">
-                        <img src="https://iitrpr.ac.in/creed/static/media/energy-audit-select.98808d4b38d348a2741d.jpg" alt="Energy Audit Select" class="w-full h-40 object-cover rounded-lg mb-4"/>
-                        <h3 class="text-2xl font-bold text-white mb-4">Energy Audit Select</h3>
-                        <p class="text-gray-400">Focused audits for specific equipment or systems, providing targeted insights for smaller-scale energy conservation needs.</p>
-                    </div>
-                </div>
+            <div
+              data-aos="fade-left"
+              class="md:w-1/2 text-lg text-gray-300 space-y-4"
+            >
+              <p>
+                Established in 2023 at the prestigious Indian Institute of
+                Technology (IIT) Ropar, CREED is at the forefront of sustainable
+                energy research.
+              </p>
+              <p>
+                Our mission is to be a global leader in energy research and
+                decarbonization, fostering impactful collaborations between
+                academia and industry to drive initiatives that promote
+                sustainable energy practices for a greener tomorrow.
+              </p>
             </div>
-        </section>
+          </div>
+        </div>
+      </section>
 
-        <!-- Projects Section -->
-        <section id="projects" class="py-20">
-            <div class="container mx-auto px-4">
-                <div data-aos="fade-up" class="text-center mb-12">
-                    <h2 class="text-4xl font-bold text-white">Our Projects</h2>
-                    <p class="text-green-400">Driving innovation through ongoing initiatives</p>
-                </div>
-                <div class="grid md:grid-cols-2 gap-8">
-                    <div data-aos="fade-up" data-aos-delay="100" class="glass-effect p-6 rounded-xl">
-                        <h3 class="text-2xl font-semibold text-white mb-2">Project Alpha</h3>
-                        <p class="text-gray-400">Exploring advanced energy-saving technologies to reduce industrial carbon footprints.</p>
-                    </div>
-                    <div data-aos="fade-up" data-aos-delay="200" class="glass-effect p-6 rounded-xl">
-                        <h3 class="text-2xl font-semibold text-white mb-2">Project Beta</h3>
-                        <p class="text-gray-400">Collaborative research focusing on sustainable power generation and storage solutions.</p>
-                    </div>
-                </div>
+      <!-- Services Section -->
+      <section id="services" class="py-20 bg-black/20">
+        <div class="container mx-auto px-4">
+          <div data-aos="fade-up" class="text-center mb-12">
+            <h2 class="text-4xl font-bold text-white">Our Services</h2>
+            <p class="text-green-400">
+              Tailored Solutions for a Sustainable Future
+            </p>
+          </div>
+          <div class="grid md:grid-cols-3 gap-8">
+            <div
+              data-aos="fade-up"
+              data-aos-delay="100"
+              class="glass-effect p-8 rounded-xl hover:border-green-500/50 transition-all duration-300 transform hover:-translate-y-2 flex flex-col items-center text-center"
+            >
+              <img
+                src="assets/kisem.jpg"
+                alt="KISEM Project"
+                class="w-full h-40 object-cover rounded-lg mb-4"
+                onerror="this.onerror=null;this.src='https://placehold.co/800x160/1a1a2e/ffffff?text=Image+Unavailable';"
+              />
+              <h3 class="text-2xl font-bold text-white mb-4">KISEM Project</h3>
+              <p class="text-gray-400">
+                In collaboration with IIT Madras and Kotak Mahindra Bank, we
+                provide comprehensive, free energy audits for selected MSME
+                industries.
+              </p>
             </div>
-        </section>
+            <div
+              data-aos="fade-up"
+              data-aos-delay="200"
+              class="glass-effect p-8 rounded-xl hover:border-green-500/50 transition-all duration-300 transform hover:-translate-y-2 flex flex-col items-center text-center"
+            >
+              <img
+                src="assets/energy-audit-pro.jpg"
+                alt="Energy Audit Pro"
+                class="w-full h-40 object-cover rounded-lg mb-4"
+                onerror="this.onerror=null;this.src='https://placehold.co/800x160/1a1a2e/ffffff?text=Image+Unavailable';"
+              />
+              <h3 class="text-2xl font-bold text-white mb-4">
+                Energy Audit Pro
+              </h3>
+              <p class="text-gray-400">
+                A complete energy audit solution with detailed reporting,
+                on-site assessments, and implementation support from our expert
+                team.
+              </p>
+            </div>
+            <div
+              data-aos="fade-up"
+              data-aos-delay="300"
+              class="glass-effect p-8 rounded-xl hover:border-green-500/50 transition-all duration-300 transform hover:-translate-y-2 flex flex-col items-center text-center"
+            >
+              <img
+                src="assets/energy-audit-select.jpg"
+                alt="Energy Audit Select"
+                class="w-full h-40 object-cover rounded-lg mb-4"
+                onerror="this.onerror=null;this.src='https://placehold.co/800x160/1a1a2e/ffffff?text=Image+Unavailable';"
+              />
+              <h3 class="text-2xl font-bold text-white mb-4">
+                Energy Audit Select
+              </h3>
+              <p class="text-gray-400">
+                Focused audits for specific equipment or systems, providing
+                targeted insights for smaller-scale energy conservation needs.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-        <!-- Team Section -->
-        <section id="team" class="py-20">
-            <div class="container mx-auto px-4">
-                <div data-aos="fade-up" class="text-center mb-12"><h2 class="text-4xl font-bold text-white">Meet Our Team</h2><p class="text-green-400">The Experts Driving Our Mission</p></div>
-                <div data-aos="fade-up" class="flex justify-center flex-wrap gap-4 mb-8" id="team-filters">
-                    <button data-team="creedFaculty" class="team-filter-btn px-6 py-2 rounded-lg transition bg-green-600 text-white">CREED Faculty</button>
-                    <button data-team="kisemFaculty" class="team-filter-btn px-6 py-2 rounded-lg transition bg-gray-800 text-gray-300">KISEM Faculty</button>
-                    <button data-team="kisemTechnical" class="team-filter-btn px-6 py-2 rounded-lg transition bg-gray-800 text-gray-300">KISEM Technical</button>
-                </div>
-                <div id="team-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-                    <!-- Team members will be injected here by JavaScript -->
-                </div>
+      <!-- Projects Section -->
+      <section id="projects" class="py-20">
+        <div class="container mx-auto px-4">
+          <div data-aos="fade-up" class="text-center mb-12">
+            <h2 class="text-4xl font-bold text-white">Our Projects</h2>
+            <p class="text-green-400">
+              Driving innovation through ongoing initiatives
+            </p>
+          </div>
+          <div class="grid md:grid-cols-2 gap-8">
+            <div
+              data-aos="fade-up"
+              data-aos-delay="100"
+              class="glass-effect p-6 rounded-xl"
+            >
+              <h3 class="text-2xl font-semibold text-white mb-2">
+                Project Alpha
+              </h3>
+              <p class="text-gray-400">
+                Exploring advanced energy-saving technologies to reduce
+                industrial carbon footprints.
+              </p>
             </div>
-        </section>
+            <div
+              data-aos="fade-up"
+              data-aos-delay="200"
+              class="glass-effect p-6 rounded-xl"
+            >
+              <h3 class="text-2xl font-semibold text-white mb-2">
+                Project Beta
+              </h3>
+              <p class="text-gray-400">
+                Collaborative research focusing on sustainable power generation
+                and storage solutions.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-        <!-- News Section -->
-        <section id="news" class="py-20 bg-black/20">
-            <div class="container mx-auto px-4 max-w-3xl">
-                <div data-aos="fade-up" class="text-center mb-12">
-                    <h2 class="text-4xl font-bold text-white">Latest News</h2>
-                    <p class="text-green-400">Updates and announcements</p>
-                </div>
-                <div class="space-y-8">
-                    <article data-aos="fade-up" class="glass-effect p-6 rounded-xl">
-                        <h3 class="text-2xl font-semibold text-white mb-2">CREED Launches New Initiative</h3>
-                        <p class="text-gray-400">A new program aimed at promoting energy efficiency across campus buildings has been unveiled.</p>
-                    </article>
-                    <article data-aos="fade-up" data-aos-delay="100" class="glass-effect p-6 rounded-xl">
-                        <h3 class="text-2xl font-semibold text-white mb-2">Upcoming Workshop on Energy Efficiency</h3>
-                        <p class="text-gray-400">Join us for a hands-on workshop this fall, focusing on practical strategies to reduce energy consumption.</p>
-                    </article>
-                </div>
-            </div>
-        </section>
+      <!-- Team Section -->
+      <section id="team" class="py-20">
+        <div class="container mx-auto px-4">
+          <div data-aos="fade-up" class="text-center mb-12">
+            <h2 class="text-4xl font-bold text-white">Meet Our Team</h2>
+            <p class="text-green-400">The Experts Driving Our Mission</p>
+          </div>
+          <div
+            data-aos="fade-up"
+            class="flex justify-center flex-wrap gap-4 mb-8"
+            id="team-filters"
+          >
+            <button
+              data-team="creedFaculty"
+              class="team-filter-btn px-6 py-2 rounded-lg transition bg-green-600 text-white"
+            >
+              CREED Faculty
+            </button>
+            <button
+              data-team="kisemFaculty"
+              class="team-filter-btn px-6 py-2 rounded-lg transition bg-gray-800 text-gray-300"
+            >
+              KISEM Faculty
+            </button>
+            <button
+              data-team="kisemTechnical"
+              class="team-filter-btn px-6 py-2 rounded-lg transition bg-gray-800 text-gray-300"
+            >
+              KISEM Technical
+            </button>
+          </div>
+          <div
+            id="team-grid"
+            class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"
+          >
+            <!-- Team members will be injected here by JavaScript -->
+          </div>
+        </div>
+      </section>
 
-        <!-- FAQ Section -->
-        <section id="faq" class="py-20 bg-black/20">
-            <div class="container mx-auto px-4 max-w-3xl">
-                <div data-aos="fade-up" class="text-center mb-12"><h2 class="text-4xl font-bold text-white">Frequently Asked Questions</h2><p class="text-green-400">Your Questions, Answered</p></div>
-                <div data-aos="fade-up" class="space-y-4" id="faq-container">
-                    <!-- FAQ Items will be injected here by JavaScript -->
-                </div>
-            </div>
-        </section>
+      <!-- News Section -->
+      <section id="news" class="py-20 bg-black/20">
+        <div class="container mx-auto px-4 max-w-3xl">
+          <div data-aos="fade-up" class="text-center mb-12">
+            <h2 class="text-4xl font-bold text-white">Latest News</h2>
+            <p class="text-green-400">Updates and announcements</p>
+          </div>
+          <div class="space-y-8">
+            <article data-aos="fade-up" class="glass-effect p-6 rounded-xl">
+              <h3 class="text-2xl font-semibold text-white mb-2">
+                CREED Launches New Initiative
+              </h3>
+              <p class="text-gray-400">
+                A new program aimed at promoting energy efficiency across campus
+                buildings has been unveiled.
+              </p>
+            </article>
+            <article
+              data-aos="fade-up"
+              data-aos-delay="100"
+              class="glass-effect p-6 rounded-xl"
+            >
+              <h3 class="text-2xl font-semibold text-white mb-2">
+                Upcoming Workshop on Energy Efficiency
+              </h3>
+              <p class="text-gray-400">
+                Join us for a hands-on workshop this fall, focusing on practical
+                strategies to reduce energy consumption.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
 
-        <!-- Contact Section -->
-        <section id="contact" class="py-20">
-            <div class="container mx-auto px-4">
-                 <div data-aos="fade-up" class="text-center mb-12"><h2 class="text-4xl font-bold text-white">Get In Touch</h2><p class="text-green-400">Let's build a sustainable future together.</p></div>
-                <div class="flex flex-col md:flex-row gap-12 items-center">
-                    <div data-aos="fade-right" class="md:w-1/2 text-lg">
-                        <form id="contact-form" action="https://example.com/contact" method="POST" class="space-y-6">
-                            <input name="name" id="name" type="text" placeholder="Your Name" required class="w-full p-4 rounded-lg bg-gray-800/50 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-green-500 text-gray-200 placeholder-gray-500">
-                            <input name="email" id="email" type="email" placeholder="Your Email" required class="w-full p-4 rounded-lg bg-gray-800/50 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-green-500 text-gray-200 placeholder-gray-500">
-                            <textarea name="message" id="message" placeholder="Your Message" rows="5" required class="w-full p-4 rounded-lg bg-gray-800/50 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-green-500 text-gray-200 placeholder-gray-500"></textarea>
-                            <button type="submit" class="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-4 px-8 rounded-lg transition text-lg accent-glow">Send Message</button>
-                            <p id="form-status" class="text-sm text-center hidden"></p>
-                        </form>
-                    </div>
-                    <div data-aos="fade-left" class="md:w-1/2 text-lg text-gray-300">
-                        <h3 class="text-2xl font-bold text-white mb-4">Contact Information</h3>
-                        <p class="mb-2"><strong class="text-green-400">Address:</strong> Mechanical Engineering Building, IIT Ropar, Rupnagar, PIN 140001</p>
-                        <p class="mb-2"><strong class="text-green-400">Phone:</strong> +91 98846-69570</p>
-                        <p class="mb-4"><strong class="text-green-400">Email:</strong> mani@iitrpr.ac.in</p>
-                        <div class="h-64 rounded-lg overflow-hidden border-2 border-green-800/50">
-                             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3419.825312384215!2d76.5330343151381!3d30.97534298154946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39056845a27c6791%3A0x1b3754be67732a0b!2sIndian%20Institute%20Of%20Technology%E2%80%93Ropar%20(IIT%E2%80%93Ropar)!5e0!3m2!1sen!2sin!4v1678886472859!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                        </div>
-                    </div>
-                </div>
+      <!-- FAQ Section -->
+      <section id="faq" class="py-20 bg-black/20">
+        <div class="container mx-auto px-4 max-w-3xl">
+          <div data-aos="fade-up" class="text-center mb-12">
+            <h2 class="text-4xl font-bold text-white">
+              Frequently Asked Questions
+            </h2>
+            <p class="text-green-400">Your Questions, Answered</p>
+          </div>
+          <div data-aos="fade-up" class="space-y-4" id="faq-container">
+            <!-- FAQ Items will be injected here by JavaScript -->
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="py-20">
+        <div class="container mx-auto px-4">
+          <div data-aos="fade-up" class="text-center mb-12">
+            <h2 class="text-4xl font-bold text-white">Get In Touch</h2>
+            <p class="text-green-400">
+              Let's build a sustainable future together.
+            </p>
+          </div>
+          <div class="flex flex-col md:flex-row gap-12 items-center">
+            <div data-aos="fade-right" class="md:w-1/2 text-lg">
+              <form
+                id="contact-form"
+                action="https://example.com/contact"
+                method="POST"
+                class="space-y-6"
+              >
+                <input
+                  name="name"
+                  id="name"
+                  type="text"
+                  placeholder="Your Name"
+                  required
+                  class="w-full p-4 rounded-lg bg-gray-800/50 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-green-500 text-gray-200 placeholder-gray-500"
+                />
+                <input
+                  name="email"
+                  id="email"
+                  type="email"
+                  placeholder="Your Email"
+                  required
+                  class="w-full p-4 rounded-lg bg-gray-800/50 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-green-500 text-gray-200 placeholder-gray-500"
+                />
+                <textarea
+                  name="message"
+                  id="message"
+                  placeholder="Your Message"
+                  rows="5"
+                  required
+                  class="w-full p-4 rounded-lg bg-gray-800/50 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-green-500 text-gray-200 placeholder-gray-500"
+                ></textarea>
+                <button
+                  type="submit"
+                  class="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-4 px-8 rounded-lg transition text-lg accent-glow"
+                >
+                  Send Message
+                </button>
+                <p id="form-status" class="text-sm text-center hidden"></p>
+              </form>
             </div>
-        </section>
+            <div data-aos="fade-left" class="md:w-1/2 text-lg text-gray-300">
+              <h3 class="text-2xl font-bold text-white mb-4">
+                Contact Information
+              </h3>
+              <p class="mb-2">
+                <strong class="text-green-400">Address:</strong> Mechanical
+                Engineering Building, IIT Ropar, Rupnagar, PIN 140001
+              </p>
+              <p class="mb-2">
+                <strong class="text-green-400">Phone:</strong> +91 98846-69570
+              </p>
+              <p class="mb-4">
+                <strong class="text-green-400">Email:</strong> mani@iitrpr.ac.in
+              </p>
+              <div
+                class="h-64 rounded-lg overflow-hidden border-2 border-green-800/50"
+              >
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3419.825312384215!2d76.5330343151381!3d30.97534298154946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39056845a27c6791%3A0x1b3754be67732a0b!2sIndian%20Institute%20Of%20Technology%E2%80%93Ropar%20(IIT%E2%80%93Ropar)!5e0!3m2!1sen!2sin!4v1678886472859!5m2!1sen!2sin"
+                  width="100%"
+                  height="100%"
+                  style="border: 0"
+                  allowfullscreen=""
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                ></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <!-- Footer -->
     <footer class="bg-black/40 py-12">
-        <div class="container mx-auto px-4 text-center text-gray-400">
-            <p>&copy; 2024 CREED - IIT Ropar. All Rights Reserved.</p>
-            <p>Designed with a vision for a sustainable future.</p>
-        </div>
+      <div class="container mx-auto px-4 text-center text-gray-400">
+        <p>&copy; 2024 CREED - IIT Ropar. All Rights Reserved.</p>
+        <p>Designed with a vision for a sustainable future.</p>
+      </div>
     </footer>
-    
+
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            AOS.init({ duration: 800, once: true });
-            
-            // --- Cursor Glow ---
-            const cursorGlow = document.getElementById('cursor-glow');
-            document.addEventListener('mousemove', e => {
-                cursorGlow.style.left = e.clientX + 'px';
-                cursorGlow.style.top = e.clientY + 'px';
-            });
+      document.addEventListener("DOMContentLoaded", function () {
+        AOS.init({ duration: 800, once: true });
 
-            // --- Data ---
-            const teamData = {
-                creedFaculty: [
-                    { name: "Dr. Manigandan S.", role: "Co-ordinator CREED", img: "https://iitrpr.ac.in/creed/static/media/mani.d2b90422176860368499.jpg", bio: "Coordinates CREED initiatives focusing on sustainable energy research.", linkedin: "https://www.linkedin.com/in/manigandan" },
-                    { name: "Dr. Brijesh Kumbhani", role: "Energy efficient wireless technologies", img: "https://iitrpr.ac.in/creed/static/media/brijesh.7024f47514a34213ca4f.jpg", bio: "", linkedin: "" },
-                    { name: "Dr. Devranjan Samanta", role: "Fluid mechanics", img: "https://iitrpr.ac.in/creed/assets/DevranjanSamanta-ByDbPysF.png", bio: "", linkedin: "" },
-                    { name: "Dr. Dhiraj Mahajan", role: "Energy and biomedical applications", img: "https://iitrpr.ac.in/creed/static/media/dhiraj.1e6b3ad023707218672d.jpg", bio: "", linkedin: "" },
-                    { name: "Dr. Himanshu Tyagi", role: "Solar energy and energy storage", img: "https://iitrpr.ac.in/creed/static/media/himanshu.065d63f668a6058079f2.jpg", bio: "", linkedin: "" },
-                    { name: "Dr. Kalaiselvi", role: "Energy efficiency, VFDs", img: "https://iitrpr.ac.in/creed/static/media/kalai.85b37d4571d87e1378f0.jpg", bio: "", linkedin: "" },
-                    { name: "Prof. Manoranjan Mishra", role: "Fluid dynamics", img: "https://iitrpr.ac.in/creed/static/media/manoranjan.13f33b1e84364e50337c.jpg", bio: "", linkedin: "" },
-                    { name: "Dr. Muthulingam Subramanian", role: "Energy storage, risk assessment", img: "https://iitrpr.ac.in/creed/static/media/muthu.504b661d516248ea5c80.jpg", bio: "", linkedin: "" },
-                    { name: "Dr. Navaneeth K M", role: "Fluid dynamics", img: "https://iitrpr.ac.in/creed/static/media/navaneeth.304c45b23d9a5848243e.jpg", bio: "", linkedin: "" },
-                    { name: "Dr. Tarak Mondal", role: "Biomass conversion, waste-to-energy", img: "https://iitrpr.ac.in/creed/static/media/tarak.815c1064a3e2fe729864.jpg", bio: "", linkedin: "" },
-                    { name: "Dr. Vishwajeet Mehandia", role: "CO₂ capture, complex fluids", img: "https://iitrpr.ac.in/creed/static/media/vishwajeet.6425514f24f501a3517c.jpg", bio: "", linkedin: "" },
-                ],
-                kisemFaculty: [
-                    { name: "Dr. Manigandan S.", role: "Co-ordinator CREED", img: "https://iitrpr.ac.in/creed/static/media/mani.d2b90422176860368499.jpg", bio: "Coordinates CREED initiatives focusing on sustainable energy research.", linkedin: "https://www.linkedin.com/in/manigandan" },
-                    { name: "Dr. Navin Kumar", role: "Professor of Mechanical Engineering", img: "https://iitrpr.ac.in/creed/static/media/navin.c6a512140a7b5e13b865.jpg", bio: "", linkedin: "" },
-                    { name: "Dr. C. C. Reddy", role: "Professor of Electrical Engineering", img: "https://iitrpr.ac.in/creed/static/media/ccreddy.224899d453051c51000b.jpg", bio: "", linkedin: "" },
-                    { name: "Dr. Vishwajeet Mehandia", role: "CO₂ capture, complex fluids", img: "https://iitrpr.ac.in/creed/static/media/vishwajeet.6425514f24f501a3517c.jpg", bio: "", linkedin: "" },
-                    { name: "Dr. Kalaiselvi", role: "Energy efficiency, VFDs", img: "https://iitrpr.ac.in/creed/static/media/kalai.85b37d4571d87e1378f0.jpg", bio: "", linkedin: "" },
-                    { name: "Dr. Tarak Mondal", role: "Biomass conversion, waste-to-energy", img: "https://iitrpr.ac.in/creed/static/media/tarak.815c1064a3e2fe729864.jpg", bio: "", linkedin: "" },
-                    { name: "Dr. Navaneeth K M", role: "Fluid dynamics", img: "https://iitrpr.ac.in/creed/static/media/navaneeth.304c45b23d9a5848243e.jpg", bio: "", linkedin: "" },
-                ],
-                kisemTechnical: [
-                    { name: "Mr. Renjith Raj R", role: "Energy Assessor, KISEM project", img: "https://iitrpr.ac.in/creed/static/media/renjith.e6c6b0c3608f623315a6.jpg", bio: "Leads energy assessments and data analysis for KISEM project.", linkedin: "https://www.linkedin.com/in/renjith" },
-                    { name: "Mr. Prabhu Vijayakumaran", role: "Project Manager, KISEM project", img: "https://iitrpr.ac.in/creed/static/media/prabhu.7f32dc07024f79435b62.jpg", bio: "", linkedin: "" },
-                    { name: "Mr. Sumit Kumar Chaurasia", role: "Field Engineer, KISEM project", img: "https://iitrpr.ac.in/creed/static/media/sumit.47182283a010d29173f2.jpg", bio: "", linkedin: "" },
-                    { name: "Mr. Niranjan Kumar Mishra", role: "Field Engineer, KISEM project", img: "https://iitrpr.ac.in/creed/static/media/niranjan.f1039a04a43405b5a26f.jpg", bio: "", linkedin: "" },
-                    { name: "Mr. Kirit Prasad", role: "Field Engineer, KISEM project", img: "https://iitrpr.ac.in/creed/static/media/kirit.e8a8b846175e3a89178f.jpg", bio: "", linkedin: "" },
-                    { name: "Mrs. Roopa Chandran", role: "Field Engineer, KISEM project", img: "https://iitrpr.ac.in/creed/static/media/roopa.5422ab88e7a685e1c45f.jpg", bio: "", linkedin: "" },
-                    { name: "Mrs. Inderpreet Singh", role: "Project Assistant, KISEM project", img: "https://iitrpr.ac.in/creed/static/media/inderpreet.57a395240562e153b47f.jpg", bio: "", linkedin: "" },
-                    { name: "Mrs. Sitanshu Singh", role: "Field Engineer, KISEM project", img: "https://placehold.co/400x400/1a1a2e/ffffff?text=Sitanshu+Singh", bio: "", linkedin: "" },
-                ]
-            };
-            const faqData = [
-                { question: "What is CREED?", answer: "CREED is a pioneering research centre established in 2023 at IIT Ropar, focusing on advancing energy efficiency and decarbonisation through interdisciplinary research and collaborations." },
-                { question: "Who are the key members of the CREED team?", answer: "The team comprises ten faculty members including professors, associate professors, and assistant professors, along with dedicated technical staff for projects like KISEM." },
-                { question: "What is the mission of CREED?", answer: "The mission is to be a leader in energy research and decarbonisation, foster collaborations, and drive impactful initiatives to promote sustainable energy practices." },
-                { question: "Who are some of CREED's key partners?", answer: "CREED has initiated partnerships with the Energy Consortium Centre at IIT Ropar and the Punjab Energy Development Agency (PEDA) to enhance collaborative efforts in energy research." },
-                { question: "How does CREED collaborate with industry partners?", answer: "CREED collaborates through paid energy audits, joint research projects, and strategic initiatives aimed at reducing carbon footprints and enhancing energy efficiency." }
-            ];
+        // --- Cursor Glow ---
+        const cursorGlow = document.getElementById("cursor-glow");
+        document.addEventListener("mousemove", (e) => {
+          cursorGlow.style.left = e.clientX + "px";
+          cursorGlow.style.top = e.clientY + "px";
+        });
 
-            // --- UI Logic ---
-            const header = document.getElementById('header');
-            window.addEventListener('scroll', () => header.classList.toggle('header-scrolled', window.scrollY > 50));
-            
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
-            document.querySelectorAll('#mobile-menu a').forEach(link => link.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+        // --- Data ---
+        const teamData = {
+          creedFaculty: [
+            {
+              name: "Dr. Manigandan S.",
+              role: "Co-ordinator CREED",
+              img: "assets/Manigandan-DL9hEq9n.png",
+              bio: "Coordinates CREED initiatives focusing on sustainable energy research.",
+              linkedin: "https://www.linkedin.com/in/manigandan",
+            },
+            {
+              name: "Dr. Brijesh Kumbhani",
+              role: "Energy efficient wireless technologies",
+              img: "assets/BrijeshKumbhani-CY_sKGsD.png",
+              bio: "",
+              linkedin: "",
+            },
+            {
+              name: "Dr. Devranjan Samanta",
+              role: "Fluid mechanics",
+              img: "assets/DevranjanSamanta-ByDbPysF.png",
+              bio: "",
+              linkedin: "",
+            },
+            {
+              name: "Dr. Dhiraj Mahajan",
+              role: "Energy and biomedical applications",
+              img: "assets/DhirajKMahajan-YY3MrGjN.png",
+              bio: "",
+              linkedin: "",
+            },
+            {
+              name: "Dr. Himanshu Tyagi",
+              role: "Solar energy and energy storage",
+              img: "assets/HimanshuTyagi-Cg6Ql2aF.png",
+              bio: "",
+              linkedin: "",
+            },
+            {
+              name: "Dr. Kalaiselvi",
+              role: "Energy efficiency, VFDs",
+              img: "assets/Kalaiselvi-3SMJ2Go-.png",
+              bio: "",
+              linkedin: "",
+            },
+            {
+              name: "Prof. Manoranjan Mishra",
+              role: "Fluid dynamics",
+              img: "assets/ManoranjanMishra-Dz7Nuwdo.png",
+              bio: "",
+              linkedin: "",
+            },
+            {
+              name: "Dr. Muthulingam Subramanian",
+              role: "Energy storage, risk assessment",
+              img: "assets/MuthulingamSubramaniyan-Ckkd0Jvp.png",
+              bio: "",
+              linkedin: "",
+            },
+            {
+              name: "Dr. Navaneeth K M",
+              role: "Fluid dynamics",
+              img: "assets/NavaneethKM-CV-3q1FZ.jpg",
+              bio: "",
+              linkedin: "",
+            },
+            {
+              name: "Dr. Tarak Mondal",
+              role: "Biomass conversion, waste-to-energy",
+              img: "assets/TarakMondal-BkL4SY8a.jpg",
+              bio: "",
+              linkedin: "",
+            },
+            {
+              name: "Dr. Vishwajeet Mehandia",
+              role: "CO₂ capture, complex fluids",
+              img: "assets/Vishwajeet-Ci17LV9Y.jpg",
+              bio: "",
+              linkedin: "",
+            },
+          ],
+          kisemFaculty: [
+            {
+              name: "Dr. Manigandan S.",
+              role: "Co-ordinator CREED",
+              img: "assets/Manigandan-DL9hEq9n.png",
+              bio: "Coordinates CREED initiatives focusing on sustainable energy research.",
+              linkedin: "https://www.linkedin.com/in/manigandan",
+            },
+            {
+              name: "Dr. Navin Kumar",
+              role: "Professor of Mechanical Engineering",
+              img: "assets/NavinImage-CdKoxJ8d.jpeg",
+              bio: "",
+              linkedin: "",
+            },
+            {
+              name: "Dr. C. C. Reddy",
+              role: "Professor of Electrical Engineering",
+              img: "assets/ccReddyImage-BXQRzYcW.jpeg",
+              bio: "",
+              linkedin: "",
+            },
+            {
+              name: "Dr. Vishwajeet Mehandia",
+              role: "CO₂ capture, complex fluids",
+              img: "assets/Vishwajeet-Ci17LV9Y.jpg",
+              bio: "",
+              linkedin: "",
+            },
+            {
+              name: "Dr. Kalaiselvi",
+              role: "Energy efficiency, VFDs",
+              img: "assets/Kalaiselvi-3SMJ2Go-.png",
+              bio: "",
+              linkedin: "",
+            },
+            {
+              name: "Dr. Tarak Mondal",
+              role: "Biomass conversion, waste-to-energy",
+              img: "assets/TarakMondal-BkL4SY8a.jpg",
+              bio: "",
+              linkedin: "",
+            },
+            {
+              name: "Dr. Navaneeth K M",
+              role: "Fluid dynamics",
+              img: "assets/NavaneethKM-CV-3q1FZ.jpg",
+              bio: "",
+              linkedin: "",
+            },
+          ],
+          kisemTechnical: [
+            {
+              name: "Mr. Renjith Raj R",
+              role: "Energy Assessor, KISEM project",
+              img: "assets/RenjithRaj-LL4jx7cl.jpg",
+              bio: "Leads energy assessments and data analysis for KISEM project.",
+              linkedin: "https://www.linkedin.com/in/renjith",
+            },
+            {
+              name: "Mr. Prabhu Vijayakumaran",
+              role: "Project Manager, KISEM project",
+              img: "assets/PrabhuImage-BKZ3FT3S.jpeg",
+              bio: "",
+              linkedin: "",
+            },
+            {
+              name: "Mr. Sumit Kumar Chaurasia",
+              role: "Field Engineer, KISEM project",
+              img: "assets/SumitKumar-BpRkU0FW.png",
+              bio: "",
+              linkedin: "",
+            },
+            {
+              name: "Mr. Niranjan Kumar Mishra",
+              role: "Field Engineer, KISEM project",
+              img: "assets/NiranjanMishra-BqWdf0uw.png",
+              bio: "",
+              linkedin: "",
+            },
+            {
+              name: "Mr. Kirit Prasad",
+              role: "Field Engineer, KISEM project",
+              img: "assets/KirtiPrasad-Ch6uoPN-.png",
+              bio: "",
+              linkedin: "",
+            },
+            {
+              name: "Mrs. Roopa Chandran",
+              role: "Field Engineer, KISEM project",
+              img: "assets/RoopaChandran-BB25bPW_.png",
+              bio: "",
+              linkedin: "",
+            },
+            {
+              name: "Mrs. Inderpreet Singh",
+              role: "Project Assistant, KISEM project",
+              img: "assets/InderpreetSingh-yPrCoMfL.jpeg",
+              bio: "",
+              linkedin: "",
+            },
+            {
+              name: "Mrs. Sitanshu Singh",
+              role: "Field Engineer, KISEM project",
+              img: "assets/SitanshuSingh.png",
+              bio: "",
+              linkedin: "",
+            },
+          ],
+        };
+        const faqData = [
+          {
+            question: "What is CREED?",
+            answer:
+              "CREED is a pioneering research centre established in 2023 at IIT Ropar, focusing on advancing energy efficiency and decarbonisation through interdisciplinary research and collaborations.",
+          },
+          {
+            question: "Who are the key members of the CREED team?",
+            answer:
+              "The team comprises ten faculty members including professors, associate professors, and assistant professors, along with dedicated technical staff for projects like KISEM.",
+          },
+          {
+            question: "What is the mission of CREED?",
+            answer:
+              "The mission is to be a leader in energy research and decarbonisation, foster collaborations, and drive impactful initiatives to promote sustainable energy practices.",
+          },
+          {
+            question: "Who are some of CREED's key partners?",
+            answer:
+              "CREED has initiated partnerships with the Energy Consortium Centre at IIT Ropar and the Punjab Energy Development Agency (PEDA) to enhance collaborative efforts in energy research.",
+          },
+          {
+            question: "How does CREED collaborate with industry partners?",
+            answer:
+              "CREED collaborates through paid energy audits, joint research projects, and strategic initiatives aimed at reducing carbon footprints and enhancing energy efficiency.",
+          },
+        ];
 
-            function animateValue(obj, start, end, duration) {
-                let startTimestamp = null;
-                const step = (timestamp) => {
-                    if (!startTimestamp) startTimestamp = timestamp;
-                    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-                    obj.innerHTML = Math.floor(progress * (end - start) + start).toLocaleString() + '+';
-                    if (progress < 1) window.requestAnimationFrame(step);
-                };
-                window.requestAnimationFrame(step);
-            }
-            async function initCounters() {
-                try {
-                    const response = await fetch('metrics.json', { cache: 'no-cache' });
-                    const metrics = await response.json();
-                    const counterObserver = new IntersectionObserver((entries) => {
-                        entries.forEach(entry => {
-                            if (entry.isIntersecting) {
-                                Object.entries(metrics).forEach(([id, value]) => {
-                                    const el = document.getElementById(id);
-                                    if (el) animateValue(el, 0, value, 2000);
-                                });
-                                counterObserver.unobserve(entry.target);
-                            }
-                        });
-                    }, { threshold: 0.5 });
-                    counterObserver.observe(document.getElementById('home'));
-                } catch (err) {
-                    console.error('Failed to load metrics', err);
-                }
-            }
-            initCounters();
+        // --- UI Logic ---
+        const header = document.getElementById("header");
+        window.addEventListener("scroll", () =>
+          header.classList.toggle("header-scrolled", window.scrollY > 50)
+        );
 
-            const teamGrid = document.getElementById('team-grid');
-            const teamFilters = document.getElementById('team-filters');
-            const renderTeam = (teamKey) => {
-                teamGrid.innerHTML = '';
-                teamData[teamKey].forEach((member, index) => {
-                    teamGrid.innerHTML += `
-                        <div data-aos="fade-up" data-aos-delay="${index * 50}" class="team-card relative overflow-hidden rounded-xl group shadow-lg">
-                            <img src="${member.img || 'https://placehold.co/400x400/1a1a2e/ffffff?text=No+Image'}" alt="${member.name}" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" onError="this.onerror=null;this.src='https://placehold.co/400x400/1a1a2e/ffffff?text=Image+Error';">
+        const mobileMenuButton = document.getElementById("mobile-menu-button");
+        const mobileMenu = document.getElementById("mobile-menu");
+        mobileMenuButton.addEventListener("click", () =>
+          mobileMenu.classList.toggle("hidden")
+        );
+        document
+          .querySelectorAll("#mobile-menu a")
+          .forEach((link) =>
+            link.addEventListener("click", () =>
+              mobileMenu.classList.add("hidden")
+            )
+          );
+
+        function animateValue(obj, start, end, duration) {
+          let startTimestamp = null;
+          const step = (timestamp) => {
+            if (!startTimestamp) startTimestamp = timestamp;
+            const progress = Math.min(
+              (timestamp - startTimestamp) / duration,
+              1
+            );
+            obj.innerHTML =
+              Math.floor(progress * (end - start) + start).toLocaleString() +
+              "+";
+            if (progress < 1) window.requestAnimationFrame(step);
+          };
+          window.requestAnimationFrame(step);
+        }
+        async function initCounters() {
+          try {
+            const response = await fetch("metrics.json", { cache: "no-cache" });
+            const metrics = await response.json();
+            const counterObserver = new IntersectionObserver(
+              (entries) => {
+                entries.forEach((entry) => {
+                  if (entry.isIntersecting) {
+                    Object.entries(metrics).forEach(([id, value]) => {
+                      const el = document.getElementById(id);
+                      if (el) animateValue(el, 0, value, 2000);
+                    });
+                    counterObserver.unobserve(entry.target);
+                  }
+                });
+              },
+              { threshold: 0.5 }
+            );
+            counterObserver.observe(document.getElementById("home"));
+          } catch (err) {
+            console.error("Failed to load metrics", err);
+          }
+        }
+        initCounters();
+
+        const teamGrid = document.getElementById("team-grid");
+        const teamFilters = document.getElementById("team-filters");
+        const renderTeam = (teamKey) => {
+          teamGrid.innerHTML = "";
+          teamData[teamKey].forEach((member, index) => {
+            teamGrid.innerHTML += `
+                        <div data-aos="fade-up" data-aos-delay="${
+                          index * 50
+                        }" class="team-card relative overflow-hidden rounded-xl group shadow-lg">
+                            <img src="${
+                              member.img ||
+                              "https://placehold.co/400x400/1a1a2e/ffffff?text=No+Image"
+                            }" alt="${
+              member.name
+            }" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" onError="this.onerror=null;this.src='https://placehold.co/400x400/1a1a2e/ffffff?text=Image+Error';">
                             <div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/80 via-black/50 to-transparent">
-                                <h4 class="font-bold text-white text-lg">${member.name}</h4>
-                                <p class="text-green-300 text-sm">${member.role}</p>
-                                <p class="text-gray-300 text-xs mt-2">${member.bio || 'Bio not available.'}</p>
-                                ${member.linkedin ? `<a href="${member.linkedin}" target="_blank" rel="noopener" class="inline-block mt-2 text-blue-400" aria-label="LinkedIn profile">
+                                <h4 class="font-bold text-white text-lg">${
+                                  member.name
+                                }</h4>
+                                <p class="text-green-300 text-sm">${
+                                  member.role
+                                }</p>
+                                <p class="text-gray-300 text-xs mt-2">${
+                                  member.bio || "Bio not available."
+                                }</p>
+                                ${
+                                  member.linkedin
+                                    ? `<a href="${member.linkedin}" target="_blank" rel="noopener" class="inline-block mt-2 text-blue-400" aria-label="LinkedIn profile">
                                     <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
                                         <path d="M19 0h-14C2.2 0 0 2.2 0 5v14c0 2.8 2.2 5 5 5h14c2.8 0 5-2.2 5-5V5c0-2.8-2.2-5-5-5zM7.1 19H3.6V9h3.5v10zM5.3 7.5C4.1 7.5 3 6.4 3 5.2S4.1 2.9 5.3 2.9c1.2 0 2.2 1.1 2.2 2.3 0 1.3-1 2.3-2.2 2.3zM21 19h-3.5v-5.1c0-1.2-.4-2-1.4-2-.8 0-1.3.5-1.6 1-.1.2-.1.5-.1.8V19H11c0 0 0-9 0-10h3.5v1.4c.5-.8 1.3-1.9 3.1-1.9 2.2 0 3.9 1.4 3.9 4.4V19z"/>
                                     </svg>
-                                </a>` : `<span class="text-gray-400 inline-block mt-2 text-xs">LinkedIn not available</span>`}
+                                </a>`
+                                    : `<span class="text-gray-400 inline-block mt-2 text-xs">LinkedIn not available</span>`
+                                }
                             </div>
                         </div>`;
-                });
-            };
-            teamFilters.addEventListener('click', (e) => {
-                if (e.target.classList.contains('team-filter-btn')) {
-                    const teamKey = e.target.dataset.team;
-                    document.querySelectorAll('.team-filter-btn').forEach(btn => {
-                        btn.classList.remove('bg-green-600', 'text-white');
-                        btn.classList.add('bg-gray-800', 'text-gray-300');
-                    });
-                    e.target.classList.add('bg-green-600', 'text-white');
-                    e.target.classList.remove('bg-gray-800', 'text-gray-300');
-                    renderTeam(teamKey);
-                }
+          });
+        };
+        teamFilters.addEventListener("click", (e) => {
+          if (e.target.classList.contains("team-filter-btn")) {
+            const teamKey = e.target.dataset.team;
+            document.querySelectorAll(".team-filter-btn").forEach((btn) => {
+              btn.classList.remove("bg-green-600", "text-white");
+              btn.classList.add("bg-gray-800", "text-gray-300");
             });
+            e.target.classList.add("bg-green-600", "text-white");
+            e.target.classList.remove("bg-gray-800", "text-gray-300");
+            renderTeam(teamKey);
+          }
+        });
 
-            const faqContainer = document.getElementById('faq-container');
-            faqData.forEach((item) => {
-                faqContainer.innerHTML += `
+        const faqContainer = document.getElementById("faq-container");
+        faqData.forEach((item) => {
+          faqContainer.innerHTML += `
                     <div class="faq-item glass-effect rounded-lg">
-                        <button class="faq-question w-full flex justify-between items-center text-left p-6">
+                        <button class="faq-question w-full flex justify-between items-center text-left p-6" aria-expanded="false">
                             <span class="text-lg font-semibold">${item.question}</span>
                             <span class="faq-icon text-green-500 text-2xl font-thin">+</span>
                         </button>
-                        <div class="faq-answer px-6 pb-4 text-gray-400"><p>${item.answer}</p></div>
+                        <div class="faq-answer px-6 pb-4 text-gray-400" style="max-height:0; overflow:hidden; transition:max-height 0.5s ease-in-out;">
+                            <p>${item.answer}</p>
+                        </div>
                     </div>`;
-            });
-            faqContainer.addEventListener('click', (e) => {
-                const faqItem = e.target.closest('.faq-item');
-                if (faqItem) faqItem.classList.toggle('active');
-            });
-
-            // Active Nav Link Highlighting
-            const sections = document.querySelectorAll('main section');
-            const navLinks = document.querySelectorAll('.nav-link');
-            const scrollObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const id = entry.target.getAttribute('id');
-                        navLinks.forEach(link => {
-                            link.classList.toggle('active', link.getAttribute('href') === '#' + id);
-                        });
-                    }
-                });
-            }, { rootMargin: "-50% 0px -50% 0px" });
-            sections.forEach(sec => scrollObserver.observe(sec));
-
-            const contactForm = document.getElementById('contact-form');
-            const formStatus = document.getElementById('form-status');
-
-            contactForm.addEventListener('submit', async (e) => {
-                e.preventDefault();
-                formStatus.textContent = '';
-                formStatus.classList.add('hidden');
-                const name = contactForm.name.value.trim();
-                const email = contactForm.email.value.trim();
-                const message = contactForm.message.value.trim();
-                if (!name || !email || !message) {
-                    formStatus.textContent = 'Please fill in all fields.';
-                    formStatus.classList.remove('text-green-400');
-                    formStatus.classList.add('text-red-400');
-                    formStatus.classList.remove('hidden');
-                    return;
-                }
-                try {
-                    const response = await fetch(contactForm.action, {
-                        method: 'POST',
-                        body: new FormData(contactForm)
-                    });
-                    if (response.ok) {
-                        formStatus.textContent = 'Message sent successfully!';
-                        formStatus.classList.remove('text-red-400');
-                        formStatus.classList.add('text-green-400');
-                        formStatus.classList.remove('hidden');
-                        contactForm.reset();
-                    } else {
-                        throw new Error('Network response was not ok');
-                    }
-                } catch (error) {
-                    formStatus.textContent = 'There was an error sending your message.';
-                    formStatus.classList.remove('text-green-400');
-                    formStatus.classList.add('text-red-400');
-                    formStatus.classList.remove('hidden');
-                }
-            });
-
-            // Initial Render
-            renderTeam('creedFaculty');
         });
+
+        // Toggle FAQ on click/tap
+        faqContainer.addEventListener("click", (e) => {
+          const btn = e.target.closest(".faq-question");
+          if (!btn) return;
+          const item = btn.closest(".faq-item");
+          const answer = item.querySelector(".faq-answer");
+          const icon = btn.querySelector(".faq-icon");
+          const isOpen = btn.getAttribute("aria-expanded") === "true";
+          if (isOpen) {
+            btn.setAttribute("aria-expanded", "false");
+            item.classList.remove("active");
+            answer.style.maxHeight = "0px";
+            if (icon) icon.textContent = "+";
+          } else {
+            btn.setAttribute("aria-expanded", "true");
+            item.classList.add("active");
+            answer.style.maxHeight = answer.scrollHeight + "px";
+            if (icon) icon.textContent = "–";
+          }
+        });
+
+        // Keyboard accessibility: Enter/Space to toggle
+        faqContainer.addEventListener("keydown", (e) => {
+          if (
+            (e.key === "Enter" || e.key === " ") &&
+            e.target.classList.contains("faq-question")
+          ) {
+            e.preventDefault();
+            e.target.click();
+          }
+        });
+
+        // Recompute heights on resize to avoid clipping
+        window.addEventListener("resize", () => {
+          document
+            .querySelectorAll('.faq-item .faq-question[aria-expanded="true"]')
+            .forEach((btn) => {
+              const answer = btn
+                .closest(".faq-item")
+                .querySelector(".faq-answer");
+              if (answer) answer.style.maxHeight = answer.scrollHeight + "px";
+            });
+        });
+
+        // Active Nav Link Highlighting
+        const sections = document.querySelectorAll("main section");
+        const navLinks = document.querySelectorAll(".nav-link");
+        const scrollObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                const id = entry.target.getAttribute("id");
+                navLinks.forEach((link) => {
+                  link.classList.toggle(
+                    "active",
+                    link.getAttribute("href") === "#" + id
+                  );
+                });
+              }
+            });
+          },
+          { rootMargin: "-50% 0px -50% 0px" }
+        );
+        sections.forEach((sec) => scrollObserver.observe(sec));
+
+        const contactForm = document.getElementById("contact-form");
+        const formStatus = document.getElementById("form-status");
+
+        contactForm.addEventListener("submit", async (e) => {
+          e.preventDefault();
+          formStatus.textContent = "";
+          formStatus.classList.add("hidden");
+          const name = contactForm.name.value.trim();
+          const email = contactForm.email.value.trim();
+          const message = contactForm.message.value.trim();
+          if (!name || !email || !message) {
+            formStatus.textContent = "Please fill in all fields.";
+            formStatus.classList.remove("text-green-400");
+            formStatus.classList.add("text-red-400");
+            formStatus.classList.remove("hidden");
+            return;
+          }
+          try {
+            const response = await fetch(contactForm.action, {
+              method: "POST",
+              body: new FormData(contactForm),
+            });
+            if (response.ok) {
+              formStatus.textContent = "Message sent successfully!";
+              formStatus.classList.remove("text-red-400");
+              formStatus.classList.add("text-green-400");
+              formStatus.classList.remove("hidden");
+              contactForm.reset();
+            } else {
+              throw new Error("Network response was not ok");
+            }
+          } catch (error) {
+            formStatus.textContent = "There was an error sending your message.";
+            formStatus.classList.remove("text-green-400");
+            formStatus.classList.add("text-red-400");
+            formStatus.classList.remove("hidden");
+          }
+        });
+
+        // Initial Render
+        renderTeam("creedFaculty");
+      });
     </script>
-</body>
+  </body>
 </html>
