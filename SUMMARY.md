@@ -60,3 +60,4 @@ The following images in the assets folder are not currently mapped to any facult
 - All photograph references now point to actual image files in the assets folder
 - Backup file created before any modifications
 - LinkedIn links verified programmatically (blocked by anti-bot protection but likely valid)
+
