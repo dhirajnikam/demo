@@ -30,7 +30,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
     rel="stylesheet" />
-  <link rel="preload" href="creed_modern/hero.png" as="image" type="image/png" />
+  <link rel="preload" href="assets/iit_ropar_hero.jpg" as="image" type="image/jpeg" />
   <link rel="preload" href="creed_modern/creed_logo.svg" as="image" type="image/svg+xml" />
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
   <style>
@@ -89,9 +89,9 @@
 
     .hero-bg {
       background: linear-gradient(135deg,
-          rgba(15, 15, 35, 0.95),
-          rgba(26, 26, 46, 0.9)),
-        url("creed_modern/hero.png") no-repeat center center/cover;
+          rgba(15, 15, 35, 0.75),
+          rgba(26, 26, 46, 0.85)),
+        url("assets/iit_ropar_hero.jpg") no-repeat center center/cover;
       position: relative;
     }
 
@@ -652,9 +652,9 @@
     (min-resolution: 192dpi) {
       .hero-bg {
         background-image: linear-gradient(135deg,
-            rgba(15, 15, 35, 0.95),
-            rgba(26, 26, 46, 0.9)),
-          url("creed_modern/hero.png");
+            rgba(15, 15, 35, 0.75),
+            rgba(26, 26, 46, 0.85)),
+          url("assets/iit_ropar_hero.jpg");
         background-size: cover;
       }
     }
@@ -668,7 +668,9 @@
     class="header-modern fixed w-full top-0 z-50 px-4 md:px-6 py-3 md:py-4 transition-all duration-500">
     <div class="container mx-auto flex justify-between items-center">
       <!-- Logo -->
-      <div class="flex items-center space-x-2 md:space-x-3">
+      <div class="flex items-center space-x-2 md:space-x-4">
+        <img src="assets/iit_ropar_logo.png" alt="IIT Ropar Logo" class="w-8 h-8 md:w-10 md:h-10" />
+        <div class="hidden md:block w-px h-8 bg-slate-600"></div>
         <img src="creed_modern/creed_logo.svg" alt="CREED Logo" class="w-7 h-7 md:w-8 md:h-8" />
         <a href="/" class="text-xl md:text-2xl font-bold text-white tracking-tight">
           <span class="gradient-text">CREED</span>
@@ -772,13 +774,25 @@
         </div>
 
         <!-- Stats Cards -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 max-w-6xl mx-auto mb-28 md:mb-32">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 max-w-6xl mx-auto mb-28 md:mb-32">
           <div data-aos="zoom-in" data-aos-delay="500" class="modern-card text-center group">
             <div class="mb-4">
               <h3 id="co2-saved" class="text-5xl font-bold gradient-text mb-2">
                 0+
               </h3>
-              <p class="text-slate-400 font-medium">Tons of CO₂ Saved</p>
+              <p class="text-slate-400 font-medium">Tons of Carbon Footprint Recommended</p>
+            </div>
+            <div class="w-full h-px bg-gradient-to-r from-transparent via-emerald-500/50 to-transparent"></div>
+          </div>
+
+          <div data-aos="zoom-in" data-aos-delay="550" class="modern-card text-center group">
+            <div class="mb-4">
+              <h3 id="pan-india-audits" class="text-5xl font-bold gradient-text mb-2">
+                0+
+              </h3>
+              <p class="text-slate-400 font-medium">
+                PAN India Energy Audits by KISEM
+              </p>
             </div>
             <div class="w-full h-px bg-gradient-to-r from-transparent via-emerald-500/50 to-transparent"></div>
           </div>
@@ -789,7 +803,7 @@
                 0+
               </h3>
               <p class="text-slate-400 font-medium">
-                Energy Audits Completed
+                Energy Audits by CREED IIT Ropar
               </p>
             </div>
             <div class="w-full h-px bg-gradient-to-r from-transparent via-emerald-500/50 to-transparent"></div>
@@ -1168,10 +1182,6 @@
           <button data-team="creedFaculty"
             class="team-filter-btn px-8 py-3 rounded-xl font-semibold transition-all duration-300 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white shadow-lg hover:shadow-emerald-500/25">
             CREED Faculty
-          </button>
-          <button data-team="kisemFaculty"
-            class="team-filter-btn px-8 py-3 rounded-xl font-semibold transition-all duration-300 bg-slate-800/50 text-slate-300 hover:bg-slate-700/50 hover:text-white border border-slate-700">
-            KISEM Faculty
           </button>
           <button data-team="kisemTechnical"
             class="team-filter-btn px-8 py-3 rounded-xl font-semibold transition-all duration-300 bg-slate-800/50 text-slate-300 hover:bg-slate-700/50 hover:text-white border border-slate-700">
@@ -1709,57 +1719,6 @@
             bio: "Research in energy-efficient computing and memory systems.",
             linkedin:
               "https://www.linkedin.com/in/venkata-kalyan-t-29ab28a0/",
-          },
-        ],
-        kisemFaculty: [
-          {
-            name: "Dr. Manigandan S.",
-            role: "Co-ordinator CREED",
-            img: "assets/Ph/Dr. Manigandan S.jpeg",
-            bio: "Coordinates CREED initiatives focusing on sustainable energy research.",
-            linkedin: "https://www.linkedin.com/in/dr-manigandan-sabapathy-5b191b1a5/",
-          },
-          {
-            name: "Dr. Sarang Gumfekar",
-            role: "Professor of Chemical Engineering",
-            img: "assets/Ph/Dr. Sarang Gumfekar.jpeg",
-            bio: "Expert in environmental applications of polymers and nanomaterials.",
-            linkedin: "https://www.linkedin.com/in/sarang-gumfekar/",
-          },
-          {
-            name: "Dr. Chander Shekhar Sharma",
-            role: "Professor of Mechanical Engineering",
-            img: "assets/Ph/Dr. Chander Shekhar Sharma.jpeg",
-            bio: "Research in thermal sciences and micro-scale transport phenomena.",
-            linkedin: "https://www.linkedin.com/in/chander-shekhar-sharma-ba39834/",
-          },
-          {
-            name: "Dr. Vishwajeet Mehandia",
-            role: "CO₂ capture, complex fluids",
-            img: "assets/Ph/Dr Vishwajeet Mehandia.jpeg",
-            bio: "Research in CO2 capture technologies and complex fluid systems.",
-            linkedin: "https://www.linkedin.com/in/vishwajeet-mehandia-779aa211/",
-          },
-          {
-            name: "Dr. Kalaiselvi",
-            role: "Energy efficiency, VFDs",
-            img: "assets/Ph/Dr Kalaiselvi.jpeg",
-            bio: "Expert in energy efficiency and power electronics systems.",
-            linkedin: "https://www.linkedin.com/in/kalai-selvi-jayaraman/",
-          },
-          {
-            name: "Dr. Tarak Mondal",
-            role: "Biomass conversion, waste-to-energy",
-            img: "assets/Ph/Dr Tarak Mondal.jpeg",
-            bio: "Expert in biomass conversion and waste-to-energy technologies.",
-            linkedin: "https://www.linkedin.com/in/dr-tarak-mondal-394155238/",
-          },
-          {
-            name: "Dr. Navaneeth K M",
-            role: "Fluid dynamics",
-            img: "assets/Ph/Dr Navaneeth K M.jpeg",
-            bio: "Specializes in computational fluid dynamics and transport phenomena.",
-            linkedin: "https://www.linkedin.com/in/navaneeth-k-marath-378337177/",
           },
         ],
         kisemTechnical: [
