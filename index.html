@@ -52,10 +52,10 @@
         --accent: #10b981;
         --accent-hover: #059669;
         --accent-light: #34d399;
-        --bg: #0f0f23;
-        --text-primary: #f8fafc;
-        --card: rgba(255, 255, 255, 0.03);
-        --border: rgba(255, 255, 255, 0.08);
+        --bg: #f8fafc;
+        --text-primary: #0f172a;
+        --card: rgba(255, 255, 255, 0.7);
+        --border: rgba(0, 0, 0, 0.1);
         --gradient: linear-gradient(135deg, #10b981 0%, #059669 100%);
       }
 
@@ -77,9 +77,9 @@
       .modern-bg {
         background: linear-gradient(
           135deg,
-          #0f0f23 0%,
-          #1a1a2e 50%,
-          #16213e 100%
+          #f8fafc 0%,
+          #e2e8f0 50%,
+          #cbd5e1 100%
         );
         position: relative;
       }
@@ -121,11 +121,11 @@
 
       /* Modern Glass Effect */
       .glass-modern {
-        background: rgba(255, 255, 255, 0.02);
+        background: rgba(255, 255, 255, 0.7);
         backdrop-filter: blur(20px);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3),
-          inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05),
+          inset 0 1px 0 rgba(255, 255, 255, 0.5);
       }
 
       .glass-effect {
@@ -137,15 +137,15 @@
 
       /* Modern Header */
       .header-modern {
-        background: rgba(15, 15, 35, 0.8);
+        background: rgba(255, 255, 255, 0.8);
         backdrop-filter: blur(20px);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
       }
 
       .header-scrolled {
-        background: rgba(15, 15, 35, 0.95);
+        background: rgba(255, 255, 255, 0.95);
         backdrop-filter: blur(20px);
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
       }
 
       /* Modern Navigation */
@@ -248,9 +248,9 @@
 
       /* Modern Cards */
       .modern-card {
-        background: rgba(255, 255, 255, 0.02);
+        background: rgba(255, 255, 255, 0.7);
         backdrop-filter: blur(20px);
-        border: 1px solid rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(0, 0, 0, 0.05);
         border-radius: 20px;
         padding: 2rem;
         transition: all 0.4s ease;
@@ -683,10 +683,14 @@
           background-size: cover;
         }
       }
+      .nested-dropdown:hover .nested-dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+      }
     </style>
   </head>
 
-  <body class="antialiased bg-gray-900 text-white">
+  <body class="antialiased bg-slate-50 text-slate-900">
     <div id="cursor-glow"></div>
     <!-- Modern Header -->
     <header
@@ -709,7 +713,7 @@
           />
           <a
             href="/"
-            class="text-xl md:text-2xl font-bold text-white tracking-tight"
+            class="text-xl md:text-2xl font-bold text-slate-900 tracking-tight"
           >
             <span class="gradient-text">CREED</span>
           </a>
@@ -719,44 +723,43 @@
         <nav class="hidden lg:flex items-center space-x-8">
           <a
             href="#home"
-            class="nav-link text-slate-300 hover:text-white font-medium"
+            class="nav-link text-slate-600 hover:text-emerald-600 font-medium"
             >Home</a
           >
           <a
             href="#about"
-            class="nav-link text-slate-300 hover:text-white font-medium"
+            class="nav-link text-slate-600 hover:text-emerald-600 font-medium"
             >About</a
           >
           <a
             href="#services"
-            class="nav-link text-slate-300 hover:text-white font-medium"
+            class="nav-link text-slate-600 hover:text-emerald-600 font-medium"
             >Services</a
           >
           <a
             href="#projects"
-            class="nav-link text-slate-300 hover:text-white font-medium"
+            class="nav-link text-slate-600 hover:text-emerald-600 font-medium"
             >Projects</a
           >
           
           <!-- People Dropdown -->
           <div class="relative group">
-            <button class="nav-link text-slate-300 hover:text-white font-medium flex items-center space-x-1">
+            <button class="nav-link text-slate-600 hover:text-emerald-600 font-medium flex items-center space-x-1">
               <span>People</span>
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
             </button>
-            <div class="absolute left-0 mt-2 w-48 bg-slate-800 rounded-xl shadow-xl border border-slate-700 overflow-hidden opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-left">
-              <a href="#team" class="block px-4 py-3 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">Faculty</a>
-              <a href="#team" onclick="setTimeout(() => document.querySelector('[data-team=\'staff\']').click(), 100)" class="block px-4 py-3 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">Staff</a>
+            <div class="absolute left-0 mt-2 w-48 bg-white rounded-xl shadow-xl border border-slate-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-left z-50">
+              <a href="javascript:void(0)" onclick="navigateToTeam('creedFaculty')" class="block px-4 py-3 text-slate-600 hover:text-emerald-600 hover:bg-slate-50 transition-colors rounded-t-xl">Faculty</a>
+              <a href="javascript:void(0)" onclick="navigateToTeam('staff')" class="block px-4 py-3 text-slate-600 hover:text-emerald-600 hover:bg-slate-50 transition-colors">Staff</a>
               
               <!-- Students Sub-dropdown -->
-              <div class="relative group/sub">
-                <button class="w-full text-left block px-4 py-3 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors flex justify-between items-center">
+              <div class="relative nested-dropdown">
+                <button class="w-full text-left block px-4 py-3 text-slate-600 hover:text-emerald-600 hover:bg-slate-50 transition-colors flex justify-between items-center rounded-b-xl">
                   <span>Students</span>
                   <svg class="w-4 h-4 transform -rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                 </button>
-                <div class="absolute left-full top-0 mt-0 w-48 bg-slate-800 rounded-xl shadow-xl border border-slate-700 overflow-hidden opacity-0 invisible group-hover/sub:opacity-100 group-hover/sub:visible transition-all duration-300 transform origin-top-left ml-2">
-                  <a href="#team" onclick="setTimeout(() => document.querySelector('[data-team=\'students\']').click(), 100)" class="block px-4 py-3 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">PhD Students</a>
-                  <a href="#team" onclick="setTimeout(() => document.querySelector('[data-team=\'students\']').click(), 100)" class="block px-4 py-3 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">Masters</a>
+                <div class="nested-dropdown-menu absolute left-full top-0 mt-0 w-48 bg-white rounded-xl shadow-xl border border-slate-200 opacity-0 invisible transition-all duration-300 transform origin-top-left z-50">
+                  <a href="javascript:void(0)" onclick="navigateToTeam('students')" class="block px-4 py-3 text-slate-600 hover:text-emerald-600 hover:bg-slate-50 transition-colors rounded-xl">PhD Students</a>
                 </div>
               </div>
             </div>
@@ -764,12 +767,12 @@
 
           <a
             href="#events"
-            class="nav-link text-slate-300 hover:text-white font-medium"
+            class="nav-link text-slate-600 hover:text-emerald-600 font-medium"
             >Events</a
           >
           <a
             href="#contact"
-            class="nav-link text-slate-300 hover:text-white font-medium"
+            class="nav-link text-slate-600 hover:text-emerald-600 font-medium"
             >Contact</a
           >
         </nav>
@@ -786,7 +789,7 @@
             class="lg:hidden p-2 rounded-lg hover:bg-white/10 transition-colors"
           >
             <svg
-              class="w-6 h-6 text-white"
+              class="w-6 h-6 text-slate-900"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -810,37 +813,37 @@
         <nav class="py-2">
           <a
             href="#home"
-            class="nav-link-mobile block py-3 px-6 text-slate-300 hover:text-white hover:bg-white/10 transition-all"
+            class="nav-link-mobile block py-3 px-6 text-slate-600 hover:text-emerald-600 hover:bg-slate-100 transition-all"
             >Home</a
           >
           <a
             href="#about"
-            class="nav-link-mobile block py-3 px-6 text-slate-300 hover:text-white hover:bg-white/10 transition-all"
+            class="nav-link-mobile block py-3 px-6 text-slate-600 hover:text-emerald-600 hover:bg-slate-100 transition-all"
             >About</a
           >
           <a
             href="#services"
-            class="nav-link-mobile block py-3 px-6 text-slate-300 hover:text-white hover:bg-white/10 transition-all"
+            class="nav-link-mobile block py-3 px-6 text-slate-600 hover:text-emerald-600 hover:bg-slate-100 transition-all"
             >Services</a
           >
           <a
             href="#projects"
-            class="nav-link-mobile block py-3 px-6 text-slate-300 hover:text-white hover:bg-white/10 transition-all"
+            class="nav-link-mobile block py-3 px-6 text-slate-600 hover:text-emerald-600 hover:bg-slate-100 transition-all"
             >Projects</a
           >
           <a
             href="#team"
-            class="nav-link-mobile block py-3 px-6 text-slate-300 hover:text-white hover:bg-white/10 transition-all"
+            class="nav-link-mobile block py-3 px-6 text-slate-600 hover:text-emerald-600 hover:bg-slate-100 transition-all"
             >Team</a
           >
           <a
             href="#news"
-            class="nav-link-mobile block py-3 px-6 text-slate-300 hover:text-white hover:bg-white/10 transition-all"
+            class="nav-link-mobile block py-3 px-6 text-slate-600 hover:text-emerald-600 hover:bg-slate-100 transition-all"
             >News</a
           >
           <a
             href="#contact"
-            class="nav-link-mobile block py-3 px-6 text-slate-300 hover:text-white hover:bg-white/10 transition-all"
+            class="nav-link-mobile block py-3 px-6 text-slate-600 hover:text-emerald-600 hover:bg-slate-100 transition-all"
             >Contact</a
           >
           <div class="px-6 py-4 border-t border-white/10">
@@ -861,30 +864,30 @@
         <!-- Slideshow Backgrounds -->
         <div id="hero-slideshow" class="absolute inset-0 z-0">
           <!-- Slide 1: CREED Lecture Series -->
-          <div class="absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-100 slide-bg" style="background: linear-gradient(135deg, rgba(15, 15, 35, 0.75), rgba(26, 26, 46, 0.85)), url('assets/iit_ropar_hero.jpg') no-repeat center center/cover;"></div>
+          <div class="absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-100 slide-bg" style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7)), url('assets/iit_ropar_hero.jpg') no-repeat center center/cover;"></div>
           
           <!-- Slide 2: CLS 1.0 -->
-          <div class="absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0 slide-bg" style="background: linear-gradient(135deg, rgba(15, 15, 35, 0.75), rgba(26, 26, 46, 0.85)), url('assets/slide/WhatsApp Image 2025-11-25 at 1.40.00 PM.jpeg') no-repeat center center/cover;"></div>
+          <div class="absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0 slide-bg" style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7)), url('assets/slide/WhatsApp Image 2025-11-25 at 1.40.00 PM.jpeg') no-repeat center center/cover;"></div>
           
           <!-- Slide 3: CLS 2.0 -->
-          <div class="absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0 slide-bg" style="background: linear-gradient(135deg, rgba(15, 15, 35, 0.75), rgba(26, 26, 46, 0.85)), url('assets/slide/WhatsApp Image 2025-11-25 at 1.39.59 PM.jpeg') no-repeat center center/cover;"></div>
+          <div class="absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0 slide-bg" style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7)), url('assets/slide/WhatsApp Image 2025-11-25 at 1.39.59 PM.jpeg') no-repeat center center/cover;"></div>
           
           <!-- Slide 4: CLS 2.0 Highlights -->
-          <div class="absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0 slide-bg" style="background: linear-gradient(135deg, rgba(15, 15, 35, 0.75), rgba(26, 26, 46, 0.85)), url('assets/slide/WhatsApp Image 2025-11-25 at 1.39.59 PM copy.jpeg') no-repeat center center/cover;"></div>
-          <div class="absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0 slide-bg" style="background: linear-gradient(135deg, rgba(15, 15, 35, 0.75), rgba(26, 26, 46, 0.85)), url('assets/slide/WhatsApp Image 2025-11-25 at 1.40.00 PM (1).jpeg') no-repeat center center/cover;"></div>
-          <div class="absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0 slide-bg" style="background: linear-gradient(135deg, rgba(15, 15, 35, 0.75), rgba(26, 26, 46, 0.85)), url('assets/slide/WhatsApp Image 2025-11-25 at 1.40.00 PM (2).jpeg') no-repeat center center/cover;"></div>
-          <div class="absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0 slide-bg" style="background: linear-gradient(135deg, rgba(15, 15, 35, 0.75), rgba(26, 26, 46, 0.85)), url('assets/slide/WhatsApp Image 2025-11-25 at 1.40.01 PM (1).jpeg') no-repeat center center/cover;"></div>
-          <div class="absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0 slide-bg" style="background: linear-gradient(135deg, rgba(15, 15, 35, 0.75), rgba(26, 26, 46, 0.85)), url('assets/slide/WhatsApp Image 2025-11-25 at 1.40.01 PM (2).jpeg') no-repeat center center/cover;"></div>
-          <div class="absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0 slide-bg" style="background: linear-gradient(135deg, rgba(15, 15, 35, 0.75), rgba(26, 26, 46, 0.85)), url('assets/slide/WhatsApp Image 2025-11-25 at 1.40.01 PM.jpeg') no-repeat center center/cover;"></div>
+          <div class="absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0 slide-bg" style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7)), url('assets/slide/WhatsApp Image 2025-11-25 at 1.39.59 PM copy.jpeg') no-repeat center center/cover;"></div>
+          <div class="absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0 slide-bg" style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7)), url('assets/slide/WhatsApp Image 2025-11-25 at 1.40.00 PM (1).jpeg') no-repeat center center/cover;"></div>
+          <div class="absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0 slide-bg" style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7)), url('assets/slide/WhatsApp Image 2025-11-25 at 1.40.00 PM (2).jpeg') no-repeat center center/cover;"></div>
+          <div class="absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0 slide-bg" style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7)), url('assets/slide/WhatsApp Image 2025-11-25 at 1.40.01 PM (1).jpeg') no-repeat center center/cover;"></div>
+          <div class="absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0 slide-bg" style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7)), url('assets/slide/WhatsApp Image 2025-11-25 at 1.40.01 PM (2).jpeg') no-repeat center center/cover;"></div>
+          <div class="absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0 slide-bg" style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7)), url('assets/slide/WhatsApp Image 2025-11-25 at 1.40.01 PM.jpeg') no-repeat center center/cover;"></div>
         </div>
 
         <!-- Background Elements -->
         <div class="absolute inset-0 overflow-hidden pointer-events-none z-0">
           <div
-            class="absolute top-1/4 left-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl float-animation"
+            class="absolute top-1/4 left-1/4 w-96 h-96 bg-emerald-500/20 rounded-full blur-3xl float-animation"
           ></div>
           <div
-            class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl float-animation"
+            class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl float-animation"
             style="animation-delay: -2s"
           ></div>
         </div>
@@ -895,7 +898,7 @@
             <h1
               id="hero-title"
               data-aos="fade-down"
-              class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-7xl font-black mb-3 md:mb-6 leading-tight text-white text-shadow px-2 transition-all duration-500"
+              class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-7xl font-black mb-3 md:mb-6 leading-tight text-slate-900 text-shadow px-2 transition-all duration-500"
             >
               Leading the charge towards
               <span class="gradient-text block mt-2"
@@ -914,7 +917,7 @@
             id="hero-description"
             data-aos="fade-up"
             data-aos-delay="300"
-            class="text-lg sm:text-xl md:text-2xl max-w-4xl mx-auto mb-8 md:mb-12 text-slate-300 font-light leading-relaxed px-2 transition-all duration-500"
+            class="text-lg sm:text-xl md:text-2xl max-w-4xl mx-auto mb-8 md:mb-12 text-slate-600 font-light leading-relaxed px-2 transition-all duration-500"
           >
             The Center of Research for Energy Efficiency and Decarbonization
             (CREED) at
@@ -1055,11 +1058,11 @@
               >
             </div>
             <h2
-              class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6"
+              class="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6"
             >
               About <span class="gradient-text">CREED</span>
             </h2>
-            <p class="text-xl text-slate-400 max-w-3xl mx-auto">
+            <p class="text-xl text-slate-600 max-w-3xl mx-auto">
               Advancing Energy Efficiency and Decarbonization through Innovation
             </p>
             <div
@@ -1116,12 +1119,12 @@
                       </svg>
                     </div>
                     <div>
-                      <h3 class="text-xl font-semibold text-white mb-2">
+                      <h3 class="text-xl font-semibold text-slate-900 mb-2">
                         Established 2023
                       </h3>
-                      <p class="text-slate-300 leading-relaxed">
+                      <p class="text-slate-600 leading-relaxed">
                         Founded at the prestigious
-                        <span class="text-emerald-400 font-medium"
+                        <span class="text-emerald-600 font-medium"
                           >Indian Institute of Technology (IIT) Ropar</span
                         >, CREED represents the cutting edge of sustainable
                         energy research and innovation.
@@ -1150,12 +1153,12 @@
                       </svg>
                     </div>
                     <div>
-                      <h3 class="text-xl font-semibold text-white mb-2">
+                      <h3 class="text-xl font-semibold text-slate-900 mb-2">
                         Our Mission
                       </h3>
-                      <p class="text-slate-300 leading-relaxed">
+                      <p class="text-slate-600 leading-relaxed">
                         To be a
-                        <span class="text-blue-400 font-medium"
+                        <span class="text-blue-600 font-medium"
                           >global leader</span
                         >
                         in energy research and decarbonization, fostering
@@ -1185,7 +1188,7 @@
       <!-- Modern Services Section -->
       <section id="services" class="py-24 relative overflow-hidden">
         <div
-          class="absolute inset-0 bg-gradient-to-br from-slate-900/50 via-slate-800/30 to-slate-900/50"
+          class="absolute inset-0 bg-gradient-to-br from-slate-100/50 via-white/30 to-slate-100/50"
         ></div>
 
         <div class="container mx-auto px-6 relative z-10">
@@ -1193,17 +1196,17 @@
           <div data-aos="fade-up" class="text-center mb-16">
             <div class="inline-block mb-4">
               <span
-                class="text-emerald-400 font-semibold text-lg tracking-wide uppercase"
+                class="text-emerald-600 font-semibold text-lg tracking-wide uppercase"
                 >Our Services</span
               >
             </div>
             <h2
-              class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6"
+              class="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6"
             >
               Tailored Solutions for a
               <span class="gradient-text">Sustainable Future</span>
             </h2>
-            <p class="text-xl text-slate-400 max-w-3xl mx-auto">
+            <p class="text-xl text-slate-600 max-w-3xl mx-auto">
               Comprehensive energy solutions designed to transform industries
               and drive environmental impact
             </p>
@@ -1215,10 +1218,11 @@
           <!-- Services Grid -->
           <div class="grid lg:grid-cols-3 gap-8">
             <!-- KISEM Project -->
-            <div
+            <a
+              href="mailto:Pm2.kisem@iitrpr.ac.in"
               data-aos="fade-up"
               data-aos-delay="100"
-              class="modern-card group relative overflow-hidden"
+              class="modern-card group relative overflow-hidden block hover:border-emerald-500/50 transition-all duration-300"
             >
               <div class="relative">
                 <img
@@ -1232,7 +1236,7 @@
                     class="w-12 h-12 bg-emerald-500/20 rounded-xl flex items-center justify-center"
                   >
                     <svg
-                      class="w-6 h-6 text-emerald-400"
+                      class="w-6 h-6 text-emerald-600"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -1250,48 +1254,28 @@
 
               <div class="space-y-4">
                 <h3
-                  class="text-2xl font-bold text-white group-hover:text-emerald-400 transition-colors"
+                  class="text-2xl font-bold text-slate-900 group-hover:text-emerald-600 transition-colors"
                 >
                   KISEM Project
                 </h3>
-                <p class="text-slate-300 leading-relaxed">
+                <p class="text-slate-600 leading-relaxed">
                   In collaboration with
-                  <span class="text-emerald-400 font-medium">IIT Madras</span>
+                  <span class="text-emerald-600 font-medium">IIT Madras</span>
                   and
-                  <span class="text-blue-400 font-medium"
+                  <span class="text-blue-600 font-medium"
                     >Kotak Mahindra Bank</span
                   >, we provide comprehensive, free energy audits for selected
                   MSME industries.
                 </p>
-                <div class="pt-4">
-                  <a
-                    href="#contact"
-                    class="inline-flex items-center text-emerald-400 hover:text-emerald-300 font-medium group-hover:translate-x-1 transition-all"
-                  >
-                    Get Started
-                    <svg
-                      class="w-4 h-4 ml-2"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M9 5l7 7-7 7"
-                      ></path>
-                    </svg>
-                  </a>
-                </div>
               </div>
-            </div>
+            </a>
 
             <!-- Energy Audit Pro -->
-            <div
+            <a
+              href="mailto:Pm2.kisem@iitrpr.ac.in"
               data-aos="fade-up"
               data-aos-delay="200"
-              class="modern-card group relative overflow-hidden"
+              class="modern-card group relative overflow-hidden block hover:border-blue-500/50 transition-all duration-300"
             >
               <div class="relative">
                 <img
@@ -1305,7 +1289,7 @@
                     class="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center"
                   >
                     <svg
-                      class="w-6 h-6 text-blue-400"
+                      class="w-6 h-6 text-blue-600"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -1323,46 +1307,26 @@
 
               <div class="space-y-4">
                 <h3
-                  class="text-2xl font-bold text-white group-hover:text-blue-400 transition-colors"
+                  class="text-2xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors"
                 >
                   Energy Audit Pro
                 </h3>
-                <p class="text-slate-300 leading-relaxed">
+                <p class="text-slate-600 leading-relaxed">
                   A complete energy audit solution with
-                  <span class="text-blue-400 font-medium"
+                  <span class="text-blue-600 font-medium"
                     >detailed reporting</span
                   >, on-site assessments, and implementation support from our
                   expert team.
                 </p>
-                <div class="pt-4">
-                  <a
-                    href="#contact"
-                    class="inline-flex items-center text-blue-400 hover:text-blue-300 font-medium group-hover:translate-x-1 transition-all"
-                  >
-                    Get Started
-                    <svg
-                      class="w-4 h-4 ml-2"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M9 5l7 7-7 7"
-                      ></path>
-                    </svg>
-                  </a>
-                </div>
               </div>
-            </div>
+            </a>
 
             <!-- Energy Audit Select -->
-            <div
+            <a
+              href="mailto:Pm2.kisem@iitrpr.ac.in"
               data-aos="fade-up"
               data-aos-delay="300"
-              class="modern-card group relative overflow-hidden"
+              class="modern-card group relative overflow-hidden block hover:border-purple-500/50 transition-all duration-300"
             >
               <div class="relative">
                 <img
@@ -1376,7 +1340,7 @@
                     class="w-12 h-12 bg-purple-500/20 rounded-xl flex items-center justify-center"
                   >
                     <svg
-                      class="w-6 h-6 text-purple-400"
+                      class="w-6 h-6 text-purple-600"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -1394,25 +1358,40 @@
 
               <div class="space-y-4">
                 <h3
-                  class="text-2xl font-bold text-white group-hover:text-purple-400 transition-colors"
+                  class="text-2xl font-bold text-slate-900 group-hover:text-purple-600 transition-colors"
                 >
                   Energy Audit Select
                 </h3>
-                <p class="text-slate-300 leading-relaxed">
+                <p class="text-slate-600 leading-relaxed">
                   Focused audits for
-                  <span class="text-purple-400 font-medium"
+                  <span class="text-purple-600 font-medium"
                     >specific equipment or systems</span
                   >, providing targeted insights for smaller-scale energy
                   conservation needs.
                 </p>
-                <div class="pt-4">
-                  <a
-                    href="#contact"
-                    class="inline-flex items-center text-purple-400 hover:text-purple-300 font-medium group-hover:translate-x-1 transition-all"
+              </div>
+            </a>
+
+            <!-- RAMP - Goa -->
+            <a
+              href="mailto:Pm2.kisem@iitrpr.ac.in"
+              data-aos="fade-up"
+              data-aos-delay="400"
+              class="modern-card group relative overflow-hidden block hover:border-orange-500/50 transition-all duration-300"
+            >
+              <div class="relative">
+                <img
+                  src="creed_modern/services.png"
+                  alt="RAMP - Goa"
+                  class="w-full h-48 object-cover rounded-2xl mb-6 transition-transform duration-700 group-hover:scale-105"
+                  loading="lazy"
+                />
+                <div class="absolute top-4 right-4">
+                  <div
+                    class="w-12 h-12 bg-orange-500/20 rounded-xl flex items-center justify-center"
                   >
-                    Get Started
                     <svg
-                      class="w-4 h-4 ml-2"
+                      class="w-6 h-6 text-orange-600"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -1421,28 +1400,79 @@
                         stroke-linecap="round"
                         stroke-linejoin="round"
                         stroke-width="2"
-                        d="M9 5l7 7-7 7"
+                        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
                       ></path>
                     </svg>
-                  </a>
+                  </div>
                 </div>
               </div>
-            </div>
+
+              <div class="space-y-4">
+                <h3
+                  class="text-2xl font-bold text-slate-900 group-hover:text-orange-600 transition-colors"
+                >
+                  RAMP - Goa
+                </h3>
+                <p class="text-slate-600 leading-relaxed">
+                  CREED IIT Ropar is an authorised audit partner of
+                  <span class="text-orange-600 font-medium">DITC Goa</span>.
+                  For MSME industries in Goa upto 75% audit cost can be reimbursed.
+                </p>
+              </div>
+            </a>
+
+            <!-- RAMP - Punjab -->
+            <a
+              href="mailto:Pm2.kisem@iitrpr.ac.in"
+              data-aos="fade-up"
+              data-aos-delay="500"
+              class="modern-card group relative overflow-hidden block hover:border-red-500/50 transition-all duration-300"
+            >
+              <div class="relative">
+                <img
+                  src="creed_modern/services.png"
+                  alt="RAMP - Punjab"
+                  class="w-full h-48 object-cover rounded-2xl mb-6 transition-transform duration-700 group-hover:scale-105"
+                  loading="lazy"
+                />
+                <div class="absolute top-4 right-4">
+                  <div
+                    class="w-12 h-12 bg-red-500/20 rounded-xl flex items-center justify-center"
+                  >
+                    <svg
+                      class="w-6 h-6 text-red-600"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+                      ></path>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+
+              <div class="space-y-4">
+                <h3
+                  class="text-2xl font-bold text-slate-900 group-hover:text-red-600 transition-colors"
+                >
+                  RAMP - Punjab
+                </h3>
+                <p class="text-slate-600 leading-relaxed">
+                  CREED IIT Ropar is the only audit partner of
+                  <span class="text-red-600 font-medium">DOI and PEDA</span>
+                  for free energy auditing of msme industries in Punjab.
+                </p>
+              </div>
+            </a>
           </div>
 
           <!-- Bottom CTA -->
-          <div
-            data-aos="fade-up"
-            data-aos-delay="400"
-            class="text-center mt-16"
-          >
-            <p class="text-xl text-slate-400 mb-8">
-              Ready to transform your energy efficiency?
-            </p>
-            <a href="#contact" class="btn-primary text-lg px-10 py-4">
-              Get Started Today
-            </a>
-          </div>
+
         </div>
       </section>
 
@@ -1458,12 +1488,12 @@
               >
             </div>
             <h2
-              class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6"
+              class="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6"
             >
               Driving <span class="gradient-text">Innovation</span> Through
               Research
             </h2>
-            <p class="text-xl text-slate-400 max-w-3xl mx-auto">
+            <p class="text-xl text-slate-600 max-w-3xl mx-auto">
               Pioneering initiatives that shape the future of sustainable energy
             </p>
             <div
@@ -1498,11 +1528,11 @@
                 </div>
                 <div class="flex-1">
                   <h3
-                    class="text-2xl font-bold text-white mb-4 group-hover:text-emerald-400 transition-colors"
+                    class="text-2xl font-bold text-slate-900 mb-4 group-hover:text-emerald-600 transition-colors"
                   >
                     Advanced Energy Technologies
                   </h3>
-                  <p class="text-slate-300 leading-relaxed mb-4">
+                  <p class="text-slate-600 leading-relaxed mb-4">
                     Exploring cutting-edge energy-saving technologies to
                     significantly reduce industrial carbon footprints through
                     innovative research and development.
@@ -1542,11 +1572,11 @@
                 </div>
                 <div class="flex-1">
                   <h3
-                    class="text-2xl font-bold text-white mb-4 group-hover:text-blue-400 transition-colors"
+                    class="text-2xl font-bold text-slate-900 mb-4 group-hover:text-blue-600 transition-colors"
                   >
                     Sustainable Power Solutions
                   </h3>
-                  <p class="text-slate-300 leading-relaxed mb-4">
+                  <p class="text-slate-600 leading-relaxed mb-4">
                     Collaborative research initiatives focusing on
                     next-generation sustainable power generation and advanced
                     energy storage solutions.
@@ -1567,7 +1597,7 @@
       <!-- Modern Team Section -->
       <section id="team" class="py-24 relative overflow-hidden">
         <div
-          class="absolute inset-0 bg-gradient-to-br from-slate-900/50 via-slate-800/30 to-slate-900/50"
+          class="absolute inset-0 bg-gradient-to-br from-slate-100/50 via-white/30 to-slate-100/50"
         ></div>
 
         <div class="container mx-auto px-6 relative z-10">
@@ -1580,11 +1610,11 @@
               >
             </div>
             <h2
-              class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6"
+              class="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6"
             >
               Meet Our <span class="gradient-text">Experts</span>
             </h2>
-            <p class="text-xl text-slate-400 max-w-3xl mx-auto">
+            <p class="text-xl text-slate-600 max-w-3xl mx-auto">
               The brilliant minds driving innovation in sustainable energy
               research
             </p>
@@ -1607,13 +1637,13 @@
             </button>
             <button
               data-team="staff"
-              class="team-filter-btn px-8 py-3 rounded-xl font-semibold transition-all duration-300 bg-slate-800/50 text-slate-300 hover:bg-slate-700/50 hover:text-white border border-slate-700"
+              class="team-filter-btn px-8 py-3 rounded-xl font-semibold transition-all duration-300 bg-white text-slate-600 hover:bg-slate-50 hover:text-emerald-600 border border-slate-200"
             >
               Staff
             </button>
             <button
               data-team="students"
-              class="team-filter-btn px-8 py-3 rounded-xl font-semibold transition-all duration-300 bg-slate-800/50 text-slate-300 hover:bg-slate-700/50 hover:text-white border border-slate-700"
+              class="team-filter-btn px-8 py-3 rounded-xl font-semibold transition-all duration-300 bg-white text-slate-600 hover:bg-slate-50 hover:text-emerald-600 border border-slate-200"
             >
               Students
             </button>
@@ -1641,11 +1671,11 @@
               >
             </div>
             <h2
-              class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6"
+              class="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6"
             >
               Upcoming & <span class="gradient-text">Recent Events</span>
             </h2>
-            <p class="text-xl text-slate-400 max-w-3xl mx-auto">
+            <p class="text-xl text-slate-600 max-w-3xl mx-auto">
               Stay informed about our latest workshops, lectures, and initiatives
             </p>
             <div
@@ -1657,127 +1687,127 @@
           <div class="space-y-6">
             <!-- Event 1 -->
             <div data-aos="fade-up" class="modern-card group p-6 flex flex-col md:flex-row gap-6 items-start">
-              <div class="w-full md:w-32 flex-shrink-0 bg-slate-800/50 rounded-xl p-4 text-center border border-slate-700">
-                <span class="block text-3xl font-bold text-emerald-400">05-06</span>
-                <span class="block text-sm text-slate-400 uppercase tracking-wider">Oct 2024</span>
+              <div class="w-full md:w-32 flex-shrink-0 bg-white rounded-xl p-4 text-center border border-slate-200">
+                <span class="block text-3xl font-bold text-emerald-600">05-06</span>
+                <span class="block text-sm text-slate-500 uppercase tracking-wider">Oct 2024</span>
               </div>
               <div>
-                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-emerald-400 transition-colors">
+                <h3 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-emerald-600 transition-colors">
                   Workshop on “Solar Energy Integration & Efficient Drive System”
                 </h3>
-                <p class="text-slate-300">A comprehensive workshop focusing on the integration of solar energy systems and efficient drive technologies.</p>
+                <p class="text-slate-600">A comprehensive workshop focusing on the integration of solar energy systems and efficient drive technologies.</p>
               </div>
             </div>
 
             <!-- Event 2 -->
             <div data-aos="fade-up" data-aos-delay="50" class="modern-card group p-6 flex flex-col md:flex-row gap-6 items-start">
-              <div class="w-full md:w-32 flex-shrink-0 bg-slate-800/50 rounded-xl p-4 text-center border border-slate-700">
+              <div class="w-full md:w-32 flex-shrink-0 bg-white rounded-xl p-4 text-center border border-slate-200">
                 <span class="block text-3xl font-bold text-emerald-400">09-10</span>
-                <span class="block text-sm text-slate-400 uppercase tracking-wider">Nov 2024</span>
+                <span class="block text-sm text-slate-500 uppercase tracking-wider">Nov 2024</span>
               </div>
               <div>
-                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-emerald-400 transition-colors">
+                <h3 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-emerald-600 transition-colors">
                   Workshop on “Green Computing: Challenges, Opportunities and Recent Innovations"
                 </h3>
-                <p class="text-slate-300">Exploring the future of sustainable computing and energy-efficient digital infrastructure.</p>
+                <p class="text-slate-600">Exploring the future of sustainable computing and energy-efficient digital infrastructure.</p>
               </div>
             </div>
 
             <!-- Event 3 -->
             <div data-aos="fade-up" data-aos-delay="100" class="modern-card group p-6 flex flex-col md:flex-row gap-6 items-start">
-              <div class="w-full md:w-32 flex-shrink-0 bg-slate-800/50 rounded-xl p-4 text-center border border-slate-700">
+              <div class="w-full md:w-32 flex-shrink-0 bg-white rounded-xl p-4 text-center border border-slate-200">
                 <span class="block text-3xl font-bold text-emerald-400">20</span>
-                <span class="block text-sm text-slate-400 uppercase tracking-wider">Aug 2025</span>
+                <span class="block text-sm text-slate-500 uppercase tracking-wider">Aug 2025</span>
               </div>
               <div>
-                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-emerald-400 transition-colors">
+                <h3 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-emerald-600 transition-colors">
                   Workshop on “COMSOL Multiphysics”
                 </h3>
-                <p class="text-slate-300">Hands-on training session on COMSOL Multiphysics simulation software for energy applications.</p>
+                <p class="text-slate-600">Hands-on training session on COMSOL Multiphysics simulation software for energy applications.</p>
               </div>
             </div>
 
             <!-- Event 4 -->
             <div data-aos="fade-up" data-aos-delay="150" class="modern-card group p-6 flex flex-col md:flex-row gap-6 items-start">
-              <div class="w-full md:w-32 flex-shrink-0 bg-slate-800/50 rounded-xl p-4 text-center border border-slate-700">
+              <div class="w-full md:w-32 flex-shrink-0 bg-white rounded-xl p-4 text-center border border-slate-200">
                 <span class="block text-3xl font-bold text-blue-400">MoU</span>
-                <span class="block text-sm text-slate-400 uppercase tracking-wider">Signed</span>
+                <span class="block text-sm text-slate-500 uppercase tracking-wider">Signed</span>
               </div>
               <div>
-                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">
+                <h3 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">
                   MoU Signed between CREED & M/s. Greenfinch
                 </h3>
-                <p class="text-slate-300">Joining hands with Greenfinch to drive impactful initiatives in sustainability and energy efficiency.</p>
+                <p class="text-slate-600">Joining hands with Greenfinch to drive impactful initiatives in sustainability and energy efficiency.</p>
               </div>
             </div>
 
             <!-- Event 5 -->
             <div data-aos="fade-up" data-aos-delay="200" class="modern-card group p-6 flex flex-col md:flex-row gap-6 items-start">
-              <div class="w-full md:w-32 flex-shrink-0 bg-slate-800/50 rounded-xl p-4 text-center border border-slate-700">
+              <div class="w-full md:w-32 flex-shrink-0 bg-white rounded-xl p-4 text-center border border-slate-200">
                 <span class="block text-3xl font-bold text-emerald-400">15</span>
-                <span class="block text-sm text-slate-400 uppercase tracking-wider">Sep 2025</span>
+                <span class="block text-sm text-slate-500 uppercase tracking-wider">Sep 2025</span>
               </div>
               <div>
-                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-emerald-400 transition-colors">
+                <h3 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-emerald-600 transition-colors">
                   CREED Lecture Series- 1.0
                 </h3>
-                <p class="text-slate-300">Inaugural lecture of the CREED series featuring distinguished speakers in energy research.</p>
+                <p class="text-slate-600">Inaugural lecture of the CREED series featuring distinguished speakers in energy research.</p>
               </div>
             </div>
 
             <!-- Event 6 -->
             <div data-aos="fade-up" data-aos-delay="250" class="modern-card group p-6 flex flex-col md:flex-row gap-6 items-start">
-              <div class="w-full md:w-32 flex-shrink-0 bg-slate-800/50 rounded-xl p-4 text-center border border-slate-700">
+              <div class="w-full md:w-32 flex-shrink-0 bg-white rounded-xl p-4 text-center border border-slate-200">
                 <span class="block text-3xl font-bold text-blue-400">22</span>
-                <span class="block text-sm text-slate-400 uppercase tracking-wider">Sep 2025</span>
+                <span class="block text-sm text-slate-500 uppercase tracking-wider">Sep 2025</span>
               </div>
               <div>
-                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">
+                <h3 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">
                   MoU Signed between CREED & TBiF
                 </h3>
-                <p class="text-slate-300">Strategic partnership established to foster innovation and technology transfer.</p>
+                <p class="text-slate-600">Strategic partnership established to foster innovation and technology transfer.</p>
               </div>
             </div>
 
             <!-- Event 7 -->
             <div data-aos="fade-up" data-aos-delay="300" class="modern-card group p-6 flex flex-col md:flex-row gap-6 items-start">
-              <div class="w-full md:w-32 flex-shrink-0 bg-slate-800/50 rounded-xl p-4 text-center border border-slate-700">
+              <div class="w-full md:w-32 flex-shrink-0 bg-white rounded-xl p-4 text-center border border-slate-200">
                 <span class="block text-3xl font-bold text-emerald-400">06</span>
-                <span class="block text-sm text-slate-400 uppercase tracking-wider">Nov 2025</span>
+                <span class="block text-sm text-slate-500 uppercase tracking-wider">Nov 2025</span>
               </div>
               <div>
-                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-emerald-400 transition-colors">
+                <h3 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-emerald-600 transition-colors">
                   CREED Lecture Series – 2.0
                 </h3>
-                <p class="text-slate-300">Second installment of our lecture series exploring advanced topics in decarbonization.</p>
+                <p class="text-slate-600">Second installment of our lecture series exploring advanced topics in decarbonization.</p>
               </div>
             </div>
 
             <!-- Event 8 -->
             <div data-aos="fade-up" data-aos-delay="350" class="modern-card group p-6 flex flex-col md:flex-row gap-6 items-start">
-              <div class="w-full md:w-32 flex-shrink-0 bg-slate-800/50 rounded-xl p-4 text-center border border-slate-700">
+              <div class="w-full md:w-32 flex-shrink-0 bg-white rounded-xl p-4 text-center border border-slate-200">
                 <span class="block text-3xl font-bold text-emerald-400">07-08</span>
-                <span class="block text-sm text-slate-400 uppercase tracking-wider">Nov 2025</span>
+                <span class="block text-sm text-slate-500 uppercase tracking-wider">Nov 2025</span>
               </div>
               <div>
-                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-emerald-400 transition-colors">
+                <h3 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-emerald-600 transition-colors">
                   Workshop on “Demonstration of Technologies for Energy, waste management and Environmental sustainability”
                 </h3>
-                <p class="text-slate-300">Showcasing practical technologies for sustainable waste management and energy conservation.</p>
+                <p class="text-slate-600">Showcasing practical technologies for sustainable waste management and energy conservation.</p>
               </div>
             </div>
 
             <!-- Event 9 -->
             <div data-aos="fade-up" data-aos-delay="400" class="modern-card group p-6 flex flex-col md:flex-row gap-6 items-start">
-              <div class="w-full md:w-32 flex-shrink-0 bg-slate-800/50 rounded-xl p-4 text-center border border-slate-700">
+              <div class="w-full md:w-32 flex-shrink-0 bg-white rounded-xl p-4 text-center border border-slate-200">
                 <span class="block text-3xl font-bold text-emerald-400">13</span>
-                <span class="block text-sm text-slate-400 uppercase tracking-wider">Nov 2025</span>
+                <span class="block text-sm text-slate-500 uppercase tracking-wider">Nov 2025</span>
               </div>
               <div>
-                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-emerald-400 transition-colors">
+                <h3 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-emerald-600 transition-colors">
                   CREED Lecture Series – 3.0
                 </h3>
-                <p class="text-slate-300">Continuing the dialogue on energy efficiency with leading experts.</p>
+                <p class="text-slate-600">Continuing the dialogue on energy efficiency with leading experts.</p>
               </div>
             </div>
 
@@ -1788,7 +1818,7 @@
       <!-- Modern FAQ Section -->
       <section id="faq" class="py-24 relative overflow-hidden">
         <div
-          class="absolute inset-0 bg-gradient-to-br from-slate-900/50 via-slate-800/30 to-slate-900/50"
+          class="absolute inset-0 bg-gradient-to-br from-slate-100/50 via-white/30 to-slate-100/50"
         ></div>
 
         <div class="container mx-auto px-6 max-w-4xl relative z-10">
@@ -1801,11 +1831,11 @@
               >
             </div>
             <h2
-              class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6"
+              class="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6"
             >
               Frequently Asked <span class="gradient-text">Questions</span>
             </h2>
-            <p class="text-xl text-slate-400 max-w-3xl mx-auto">
+            <p class="text-xl text-slate-600 max-w-3xl mx-auto">
               Find answers to common questions about our research and services
             </p>
             <div
@@ -1832,11 +1862,11 @@
               >
             </div>
             <h2
-              class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6"
+              class="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6"
             >
               Get In <span class="gradient-text">Touch</span>
             </h2>
-            <p class="text-xl text-slate-400 max-w-3xl mx-auto">
+            <p class="text-xl text-slate-600 max-w-3xl mx-auto">
               Ready to collaborate on sustainable energy solutions? Let's build
               a greener future together.
             </p>
@@ -1851,7 +1881,7 @@
             <div data-aos="fade-right" class="modern-card">
               <form
                 id="contact-form"
-                action="mailto:creed.office@iitrpr.ac.in"
+                action="mailto:Pm2.kisem@iitrpr.ac.in"
                 method="post"
                 enctype="text/plain"
                 class="space-y-6"
@@ -1862,7 +1892,7 @@
                   <div>
                     <label
                       for="name"
-                      class="block text-sm font-medium text-slate-300 mb-2"
+                      class="block text-sm font-medium text-slate-600 mb-2"
                       >Full Name</label
                     >
                     <input
@@ -1871,13 +1901,13 @@
                       type="text"
                       placeholder="John Doe"
                       required
-                      class="w-full p-4 rounded-xl bg-slate-800/50 border border-slate-700 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 text-white placeholder-slate-500 transition-all"
+                      class="w-full p-4 rounded-xl bg-white border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 text-slate-900 placeholder-slate-400 transition-all"
                     />
                   </div>
                   <div>
                     <label
                       for="email"
-                      class="block text-sm font-medium text-slate-300 mb-2"
+                      class="block text-sm font-medium text-slate-600 mb-2"
                       >Email Address</label
                     >
                     <input
@@ -1886,14 +1916,14 @@
                       type="email"
                       placeholder="john@example.com"
                       required
-                      class="w-full p-4 rounded-xl bg-slate-800/50 border border-slate-700 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 text-white placeholder-slate-500 transition-all"
+                      class="w-full p-4 rounded-xl bg-white border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 text-slate-900 placeholder-slate-400 transition-all"
                     />
                   </div>
                 </div>
                 <div>
                   <label
                     for="subject"
-                    class="block text-sm font-medium text-slate-300 mb-2"
+                    class="block text-sm font-medium text-slate-600 mb-2"
                     >Subject</label
                   >
                   <input
@@ -1901,13 +1931,13 @@
                     id="subject"
                     type="text"
                     placeholder="Energy Audit Inquiry"
-                    class="w-full p-4 rounded-xl bg-slate-800/50 border border-slate-700 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 text-white placeholder-slate-500 transition-all"
+                    class="w-full p-4 rounded-xl bg-white border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 text-slate-900 placeholder-slate-400 transition-all"
                   />
                 </div>
                 <div>
                   <label
                     for="message"
-                    class="block text-sm font-medium text-slate-300 mb-2"
+                    class="block text-sm font-medium text-slate-600 mb-2"
                     >Message</label
                   >
                   <textarea
@@ -1916,7 +1946,7 @@
                     placeholder="Tell us about your project or inquiry..."
                     rows="6"
                     required
-                    class="w-full p-4 rounded-xl bg-slate-800/50 border border-slate-700 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 text-white placeholder-slate-500 transition-all resize-none"
+                    class="w-full p-4 rounded-xl bg-white border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 text-slate-900 placeholder-slate-400 transition-all resize-none"
                   ></textarea>
                 </div>
                 <button
@@ -1933,7 +1963,7 @@
             <div data-aos="fade-left" class="space-y-8">
               <!-- Contact Details -->
               <div class="modern-card">
-                <h3 class="text-2xl font-bold text-white mb-6">
+                <h3 class="text-2xl font-bold text-slate-900 mb-6">
                   Contact Information
                 </h3>
                 <div class="space-y-4">
@@ -1962,8 +1992,8 @@
                       </svg>
                     </div>
                     <div>
-                      <h4 class="font-semibold text-white mb-1">Address</h4>
-                      <p class="text-slate-300">
+                      <h4 class="font-semibold text-slate-900 mb-1">Address</h4>
+                      <p class="text-slate-600">
                         Mechanical Engineering Building<br />IIT Ropar,
                         Rupnagar, PIN 140001
                       </p>
@@ -1989,8 +2019,8 @@
                       </svg>
                     </div>
                     <div>
-                      <h4 class="font-semibold text-white mb-1">Phone</h4>
-                      <p class="text-slate-300">01881232631</p>
+                      <h4 class="font-semibold text-slate-900 mb-1">Phone</h4>
+                      <p class="text-slate-600">01881232631</p>
                     </div>
                   </div>
 
@@ -2013,8 +2043,8 @@
                       </svg>
                     </div>
                     <div>
-                      <h4 class="font-semibold text-white mb-1">Email</h4>
-                      <p class="text-slate-300">creed.office@iitrpr.ac.in</p>
+                      <h4 class="font-semibold text-slate-900 mb-1">Email</h4>
+                      <p class="text-slate-600">Pm2.kisem@iitrpr.ac.in</p>
                     </div>
                   </div>
                 </div>
@@ -2024,7 +2054,7 @@
               <div class="modern-card p-0 overflow-hidden">
                 <div class="h-64 w-full">
                   <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3419.825312384215!2d76.5330343151381!3d30.97534298154946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39056845a27c6791%3A0x1b3754be67732a0b!2sIndian%20Institute%20Of%20Technology%E2%80%93Ropar%20(IIT%E2%80%93Ropar)!5e0!3m2!1sen!2sin!4v1678886472859!5m2!1sen!2sin"
+                    src="https://maps.google.com/maps?q=Mechanical%20Engineering%20Building%20IIT%20Ropar&t=&z=15&ie=UTF8&iwloc=&output=embed"
                     width="100%"
                     height="100%"
                     style="border: 0"
@@ -2043,7 +2073,7 @@
 
     <!-- Modern Footer -->
     <footer
-      class="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 border-t border-slate-700/50"
+      class="relative bg-gradient-to-br from-slate-100 via-white to-slate-100 border-t border-slate-200"
     >
       <div
         class="absolute inset-0 bg-gradient-to-r from-emerald-500/5 via-transparent to-blue-500/5"
@@ -2060,11 +2090,11 @@
                 alt="CREED Logo"
                 class="w-10 h-10"
               />
-              <h3 class="text-2xl font-bold text-white">
+              <h3 class="text-2xl font-bold text-slate-900">
                 <span class="gradient-text">CREED</span>
               </h3>
             </div>
-            <p class="text-slate-400 text-lg leading-relaxed mb-6 max-w-md">
+            <p class="text-slate-600 text-lg leading-relaxed mb-6 max-w-md">
               Center of Research for Energy Efficiency and Decarbonization at
               IIT Ropar - Leading the charge towards sustainable solutions
               through innovative research and collaboration.
@@ -2088,44 +2118,44 @@
                 </svg>
               </div>
               <div>
-                <p class="text-white font-semibold">Sustainable Innovation</p>
-                <p class="text-slate-400 text-sm">Since 2023</p>
+                <p class="text-slate-900 font-semibold">Sustainable Innovation</p>
+                <p class="text-slate-500 text-sm">Since 2023</p>
               </div>
             </div>
           </div>
 
           <!-- Quick Links -->
           <div>
-            <h4 class="text-white font-bold text-lg mb-6">Quick Links</h4>
+            <h4 class="text-slate-900 font-bold text-lg mb-6">Quick Links</h4>
             <nav class="space-y-3">
               <a
                 href="#about"
-                class="block text-slate-400 hover:text-emerald-400 transition-colors"
+                class="block text-slate-600 hover:text-emerald-600 transition-colors"
                 >About CREED</a
               >
               <a
                 href="#services"
-                class="block text-slate-400 hover:text-emerald-400 transition-colors"
+                class="block text-slate-600 hover:text-emerald-600 transition-colors"
                 >Our Services</a
               >
               <a
                 href="#projects"
-                class="block text-slate-400 hover:text-emerald-400 transition-colors"
+                class="block text-slate-600 hover:text-emerald-600 transition-colors"
                 >Research Projects</a
               >
               <a
                 href="#team"
-                class="block text-slate-400 hover:text-emerald-400 transition-colors"
+                class="block text-slate-600 hover:text-emerald-600 transition-colors"
                 >Our Team</a
               >
               <a
                 href="#news"
-                class="block text-slate-400 hover:text-emerald-400 transition-colors"
+                class="block text-slate-600 hover:text-emerald-600 transition-colors"
                 >Latest News</a
               >
               <a
                 href="#contact"
-                class="block text-slate-400 hover:text-emerald-400 transition-colors"
+                class="block text-slate-600 hover:text-emerald-600 transition-colors"
                 >Contact Us</a
               >
             </nav>
@@ -2133,11 +2163,11 @@
 
           <!-- Contact Info -->
           <div>
-            <h4 class="text-white font-bold text-lg mb-6">Contact Info</h4>
+            <h4 class="text-slate-900 font-bold text-lg mb-6">Contact Info</h4>
             <div class="space-y-4">
               <div class="flex items-start space-x-3">
                 <svg
-                  class="w-5 h-5 text-emerald-400 mt-1 flex-shrink-0"
+                  class="w-5 h-5 text-emerald-600 mt-1 flex-shrink-0"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -2155,13 +2185,13 @@
                     d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
                   ></path>
                 </svg>
-                <p class="text-slate-400 text-sm">
+                <p class="text-slate-600 text-sm">
                   IIT Ropar, Rupnagar<br />PIN 140001, India
                 </p>
               </div>
               <div class="flex items-center space-x-3">
                 <svg
-                  class="w-5 h-5 text-blue-400"
+                  class="w-5 h-5 text-blue-600"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -2173,11 +2203,11 @@
                     d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                   ></path>
                 </svg>
-                <p class="text-slate-400 text-sm">creed.office@iitrpr.ac.in</p>
+                <p class="text-slate-600 text-sm">Pm2.kisem@iitrpr.ac.in</p>
               </div>
               <div class="flex items-center space-x-3">
                 <svg
-                  class="w-5 h-5 text-purple-400"
+                  class="w-5 h-5 text-purple-600"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -2189,7 +2219,7 @@
                     d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
                   ></path>
                 </svg>
-                <p class="text-slate-400 text-sm">01881232631</p>
+                <p class="text-slate-600 text-sm">01881232631</p>
               </div>
             </div>
           </div>
@@ -2197,7 +2227,7 @@
 
         <!-- Divider -->
         <div
-          class="w-full h-px bg-gradient-to-r from-transparent via-slate-600 to-transparent mb-8"
+          class="w-full h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent mb-8"
         ></div>
 
         <!-- Bottom Footer -->
@@ -2206,9 +2236,9 @@
         >
           <!-- Copyright -->
           <div class="text-center md:text-left">
-            <p class="text-slate-400 text-sm">
+            <p class="text-slate-600 text-sm">
               &copy; 2024
-              <span class="text-emerald-400 font-medium">CREED - IIT Ropar</span
+              <span class="text-emerald-600 font-medium">CREED - IIT Ropar</span
               >. All Rights Reserved.
             </p>
             <p class="text-slate-500 text-xs mt-1">
@@ -2218,14 +2248,14 @@
 
           <!-- Social Links -->
           <div class="flex items-center space-x-4">
-            <span class="text-slate-400 text-sm mr-2">Follow us:</span>
+            <span class="text-slate-600 text-sm mr-2">Follow us:</span>
             <a
               href="#"
               target="_blank"
-              class="w-10 h-10 bg-slate-800/50 hover:bg-blue-600/20 rounded-xl flex items-center justify-center transition-all duration-300 group"
+              class="w-10 h-10 bg-white hover:bg-blue-600/20 rounded-xl flex items-center justify-center transition-all duration-300 group border border-slate-200"
             >
               <svg
-                class="w-5 h-5 text-slate-400 group-hover:text-blue-400"
+                class="w-5 h-5 text-slate-600 group-hover:text-blue-600"
                 fill="currentColor"
                 viewBox="0 0 24 24"
               >
@@ -2239,10 +2269,10 @@
             <a
               href="#"
               target="_blank"
-              class="w-10 h-10 bg-slate-800/50 hover:bg-pink-600/20 rounded-xl flex items-center justify-center transition-all duration-300 group"
+              class="w-10 h-10 bg-white hover:bg-pink-600/20 rounded-xl flex items-center justify-center transition-all duration-300 group border border-slate-200"
             >
               <svg
-                class="w-5 h-5 text-slate-400 group-hover:text-pink-400"
+                class="w-5 h-5 text-slate-600 group-hover:text-pink-600"
                 fill="currentColor"
                 viewBox="0 0 24 24"
               >
@@ -2256,10 +2286,10 @@
             <a
               href="#"
               target="_blank"
-              class="w-10 h-10 bg-slate-800/50 hover:bg-slate-600/20 rounded-xl flex items-center justify-center transition-all duration-300 group"
+              class="w-10 h-10 bg-white hover:bg-slate-600/20 rounded-xl flex items-center justify-center transition-all duration-300 group border border-slate-200"
             >
               <svg
-                class="w-5 h-5 text-slate-400 group-hover:text-slate-200"
+                class="w-5 h-5 text-slate-500 group-hover:text-slate-800"
                 fill="currentColor"
                 viewBox="0 0 24 24"
               >
@@ -2271,10 +2301,10 @@
             <a
               href="#"
               target="_blank"
-              class="w-10 h-10 bg-slate-800/50 hover:bg-purple-600/20 rounded-xl flex items-center justify-center transition-all duration-300 group"
+              class="w-10 h-10 bg-white hover:bg-purple-600/20 rounded-xl flex items-center justify-center transition-all duration-300 group border border-slate-200"
             >
               <svg
-                class="w-5 h-5 text-slate-400 group-hover:text-purple-400"
+                class="w-5 h-5 text-slate-500 group-hover:text-purple-600"
                 fill="currentColor"
                 viewBox="0 0 24 24"
               >
@@ -2288,10 +2318,10 @@
             <a
               href="#"
               target="_blank"
-              class="w-10 h-10 bg-slate-800/50 hover:bg-red-600/20 rounded-xl flex items-center justify-center transition-all duration-300 group"
+              class="w-10 h-10 bg-white hover:bg-red-600/20 rounded-xl flex items-center justify-center transition-all duration-300 group border border-slate-200"
             >
               <svg
-                class="w-5 h-5 text-slate-400 group-hover:text-red-400"
+                class="w-5 h-5 text-slate-500 group-hover:text-red-600"
                 fill="currentColor"
                 viewBox="0 0 24 24"
               >
@@ -2420,7 +2450,7 @@
             {
               name: "Dr. Manigandan S.",
               role: "Energy storage; waste to energy; energy efficiency and decarbonisation",
-              img: "assets/Ph/Dr. Manigandan S.jpeg",
+              img: "assets/Ph/WhatsApp Image 2025-12-06 at 8.42.54 PM.jpeg",
               bio: "Coordinates CREED initiatives focusing on sustainable energy research.",
               linkedin:
                 "https://www.linkedin.com/in/manigandan-sabapathy-34034978",
@@ -2604,7 +2634,14 @@
               bio: ""
             }
           ],
-          students: []
+          students: [
+            {
+              name: "Ms. Anita Kumari",
+              role: "PhD Student",
+              img: "assets/staff/WhatsApp Image 2025-12-06 at 8.55.59 PM.jpeg",
+              bio: ""
+            }
+          ]
         };
         const faqData = [
           {
@@ -2721,8 +2758,8 @@
           if (teamData[teamKey].length === 0) {
             teamGrid.innerHTML = `
               <div class="col-span-full text-center py-12">
-                <div class="inline-block p-6 rounded-2xl bg-slate-800/50 border border-slate-700">
-                  <p class="text-xl text-slate-400 font-medium">Information Not Available</p>
+                <div class="inline-block p-6 rounded-2xl bg-white border border-slate-200">
+                  <p class="text-xl text-slate-500 font-medium">Information Not Available</p>
                   <p class="text-slate-500 mt-2">This section is currently being updated.</p>
                 </div>
               </div>`;
@@ -2737,7 +2774,7 @@
                                 ${
                                   member.img
                                     ? `<img src="${member.img}" alt="${member.name}" class="w-full h-64 object-cover rounded-2xl transition-transform duration-700 group-hover:scale-105" width="300" height="256" loading="lazy">`
-                                    : `<div class="w-full h-64 bg-gradient-to-br from-slate-700 to-slate-800 rounded-2xl flex items-center justify-center"><span class="text-slate-400 text-sm">No Image Available</span></div>`
+                                    : `<div class="w-full h-64 bg-slate-100 rounded-2xl flex items-center justify-center"><span class="text-slate-500 text-sm">No Image Available</span></div>`
                                 }
                                 <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                                 ${
@@ -2753,7 +2790,7 @@
                                 }
                             </div>
                             <div class="text-center">
-                                <h4 class="font-bold text-white text-xl mb-2 group-hover:text-emerald-400 transition-colors">${
+                                <h4 class="font-bold text-slate-900 text-xl mb-2 group-hover:text-emerald-600 transition-colors">${
                                   member.name
                                 }</h4>
                                 <p class="text-emerald-400 text-sm font-medium mb-3">${
@@ -2794,7 +2831,7 @@
                                 ${
                                   member.img
                                     ? `<img src="${member.img}" alt="${member.name}" class="w-full h-64 object-cover rounded-2xl transition-transform duration-700 group-hover:scale-105" width="300" height="256" loading="lazy">`
-                                    : `<div class="w-full h-64 bg-gradient-to-br from-slate-700 to-slate-800 rounded-2xl flex items-center justify-center"><span class="text-slate-400 text-sm">No Image Available</span></div>`
+                                    : `<div class="w-full h-64 bg-slate-100 rounded-2xl flex items-center justify-center"><span class="text-slate-500 text-sm">No Image Available</span></div>`
                                 }
                                 <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                                 ${
@@ -2810,7 +2847,7 @@
                                 }
                             </div>
                             <div class="text-center">
-                                <h4 class="font-bold text-white text-xl mb-2 group-hover:text-emerald-400 transition-colors">${
+                                <h4 class="font-bold text-slate-900 text-xl mb-2 group-hover:text-emerald-600 transition-colors">${
                                   member.name
                                 }</h4>
                                 <p class="text-emerald-400 text-sm font-medium mb-3">${
@@ -2839,12 +2876,12 @@
                 "hover:shadow-emerald-500/25"
               );
               btn.classList.add(
-                "bg-slate-800/50",
-                "text-slate-300",
-                "hover:bg-slate-700/50",
-                "hover:text-white",
+                "bg-white",
+                "text-slate-600",
+                "hover:bg-slate-50",
+                "hover:text-emerald-600",
                 "border",
-                "border-slate-700"
+                "border-slate-200"
               );
             });
             e.target.classList.add(
@@ -2856,12 +2893,12 @@
               "hover:shadow-emerald-500/25"
             );
             e.target.classList.remove(
-              "bg-slate-800/50",
-              "text-slate-300",
-              "hover:bg-slate-700/50",
-              "hover:text-white",
+              "bg-white",
+              "text-slate-600",
+              "hover:bg-slate-50",
+              "hover:text-emerald-600",
               "border",
-              "border-slate-700"
+              "border-slate-200"
             );
             renderTeam(teamKey);
           }
@@ -2872,12 +2909,12 @@
           faqContainer.innerHTML += `
                     <div class="faq-item modern-card group">
                         <button class="faq-question w-full flex justify-between items-center text-left p-6" aria-expanded="false">
-                            <span class="text-lg font-semibold text-white group-hover:text-emerald-400 transition-colors">${item.question}</span>
+                            <span class="text-lg font-semibold text-slate-900 group-hover:text-emerald-600 transition-colors">${item.question}</span>
                             <div class="w-10 h-10 bg-emerald-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
                                 <span class="faq-icon text-emerald-400 text-xl font-thin">+</span>
                             </div>
                         </button>
-                        <div class="faq-answer px-6 text-slate-300" style="max-height:0; overflow:hidden; transition:max-height 0.5s ease-in-out, padding 0.3s ease;">
+                        <div class="faq-answer px-6 text-slate-600" style="max-height:0; overflow:hidden; transition:max-height 0.5s ease-in-out, padding 0.3s ease;">
                             <div class="pb-4">
                                 <p class="leading-relaxed">${item.answer}</p>
                             </div>
@@ -2971,7 +3008,7 @@
           }
 
           // Construct mailto link
-          const mailtoLink = `mailto:creed.office@iitrpr.ac.in?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
+          const mailtoLink = `mailto:Pm2.kisem@iitrpr.ac.in?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
             `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
           )}`;
 
@@ -3002,10 +3039,21 @@
             }, 100);
         } else if (hash === "#students" || hash === "#phd-students" || hash === "#masters") {
             setTimeout(() => {
-                const btn = document.querySelector('[data-team="students"]');
-                if (btn) btn.click();
+                navigateToTeam('students');
             }, 100);
         }
+
+        // Global navigation function
+        window.navigateToTeam = (teamKey) => {
+            const teamSection = document.getElementById('team');
+            if (teamSection) {
+                teamSection.scrollIntoView({ behavior: 'smooth' });
+                setTimeout(() => {
+                    const btn = document.querySelector(`[data-team="${teamKey}"]`);
+                    if (btn) btn.click();
+                }, 500); // Wait for scroll
+            }
+        };
       });
     </script>
   </body>
