@@ -1,0 +1,49 @@
+{
+    "staff": [
+        {
+            "name": "Prabhu V",
+            "position": "Project manager",
+            "image": "assets/staff/WhatsApp Image 2025-11-25 at 1.40.03 PM.jpeg"
+        },
+        {
+            "name": "Hina Chaudhary",
+            "position": "Staff assistant project manager",
+            "image": "assets/staff/WhatsApp Image 2025-11-25 at 1.40.03 PM-2.jpeg"
+        },
+        {
+            "name": "Shukwinder Singh",
+            "position": "Energy manager",
+            "image": "assets/staff/WhatsApp Image 2025-11-25 at 1.40.04 PM.jpeg"
+        },
+        {
+            "name": "Vignesh K",
+            "position": "Energy manager",
+            "image": "assets/staff/WhatsApp Image 2025-11-25 at 1.40.04 PM-2.jpeg"
+        },
+        {
+            "name": "Sumit Kumar Chaurasia",
+            "position": "Energy assessment engineer",
+            "image": "assets/staff/WhatsApp Image 2025-11-25 at 1.40.05 PM.jpeg"
+        },
+        {
+            "name": "Kirit Prasad",
+            "position": "Energy assessment engineer",
+            "image": "assets/staff/WhatsApp Image 2025-11-25 at 2.55.30 PM.jpeg"
+        },
+        {
+            "name": "Sitanshu Singh",
+            "position": "Energy assessment engineer",
+            "image": "assets/staff/WhatsApp Image 2025-12-06 at 4.33.33 PM.jpeg"
+        },
+        {
+            "name": "Inderpreet Singh",
+            "position": "Project assistant accounts",
+            "image": "assets/staff/WhatsApp Image 2025-11-25 at 2.55.42 PM.jpeg"
+        },
+        {
+            "name": "Sushil Verma",
+            "position": "Office attendant",
+            "image": "assets/staff/WhatsApp Image 2025-12-06 at 4.33.35 PM.jpeg"
+        }
+    ]
+}

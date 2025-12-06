@@ -737,15 +737,35 @@
             class="nav-link text-slate-300 hover:text-white font-medium"
             >Projects</a
           >
+          
+          <!-- People Dropdown -->
+          <div class="relative group">
+            <button class="nav-link text-slate-300 hover:text-white font-medium flex items-center space-x-1">
+              <span>People</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </button>
+            <div class="absolute left-0 mt-2 w-48 bg-slate-800 rounded-xl shadow-xl border border-slate-700 overflow-hidden opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-left">
+              <a href="#team" class="block px-4 py-3 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">Faculty</a>
+              <a href="#team" onclick="setTimeout(() => document.querySelector('[data-team=\'staff\']').click(), 100)" class="block px-4 py-3 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">Staff</a>
+              
+              <!-- Students Sub-dropdown -->
+              <div class="relative group/sub">
+                <button class="w-full text-left block px-4 py-3 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors flex justify-between items-center">
+                  <span>Students</span>
+                  <svg class="w-4 h-4 transform -rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div class="absolute left-full top-0 mt-0 w-48 bg-slate-800 rounded-xl shadow-xl border border-slate-700 overflow-hidden opacity-0 invisible group-hover/sub:opacity-100 group-hover/sub:visible transition-all duration-300 transform origin-top-left ml-2">
+                  <a href="#team" onclick="setTimeout(() => document.querySelector('[data-team=\'students\']').click(), 100)" class="block px-4 py-3 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">PhD Students</a>
+                  <a href="#team" onclick="setTimeout(() => document.querySelector('[data-team=\'students\']').click(), 100)" class="block px-4 py-3 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">Masters</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <a
-            href="#team"
+            href="#events"
             class="nav-link text-slate-300 hover:text-white font-medium"
-            >Team</a
-          >
-          <a
-            href="#news"
-            class="nav-link text-slate-300 hover:text-white font-medium"
-            >News</a
+            >Events</a
           >
           <a
             href="#contact"
@@ -833,13 +853,33 @@
     </header>
 
     <main>
-      <!-- Modern Hero Section -->
+      <!-- Modern Hero Section with Slideshow -->
       <section
         id="home"
-        class="hero-bg min-h-screen flex items-center justify-center text-center pt-20 md:pt-24 pb-12 md:pb-16 modern-bg relative overflow-hidden"
+        class="relative min-h-screen flex items-center justify-center text-center pt-20 md:pt-24 pb-12 md:pb-16 overflow-hidden"
       >
+        <!-- Slideshow Backgrounds -->
+        <div id="hero-slideshow" class="absolute inset-0 z-0">
+          <!-- Slide 1: CREED Lecture Series -->
+          <div class="absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-100 slide-bg" style="background: linear-gradient(135deg, rgba(15, 15, 35, 0.75), rgba(26, 26, 46, 0.85)), url('assets/iit_ropar_hero.jpg') no-repeat center center/cover;"></div>
+          
+          <!-- Slide 2: CLS 1.0 -->
+          <div class="absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0 slide-bg" style="background: linear-gradient(135deg, rgba(15, 15, 35, 0.75), rgba(26, 26, 46, 0.85)), url('assets/slide/WhatsApp Image 2025-11-25 at 1.40.00 PM.jpeg') no-repeat center center/cover;"></div>
+          
+          <!-- Slide 3: CLS 2.0 -->
+          <div class="absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0 slide-bg" style="background: linear-gradient(135deg, rgba(15, 15, 35, 0.75), rgba(26, 26, 46, 0.85)), url('assets/slide/WhatsApp Image 2025-11-25 at 1.39.59 PM.jpeg') no-repeat center center/cover;"></div>
+          
+          <!-- Slide 4: CLS 2.0 Highlights -->
+          <div class="absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0 slide-bg" style="background: linear-gradient(135deg, rgba(15, 15, 35, 0.75), rgba(26, 26, 46, 0.85)), url('assets/slide/WhatsApp Image 2025-11-25 at 1.39.59 PM copy.jpeg') no-repeat center center/cover;"></div>
+          <div class="absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0 slide-bg" style="background: linear-gradient(135deg, rgba(15, 15, 35, 0.75), rgba(26, 26, 46, 0.85)), url('assets/slide/WhatsApp Image 2025-11-25 at 1.40.00 PM (1).jpeg') no-repeat center center/cover;"></div>
+          <div class="absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0 slide-bg" style="background: linear-gradient(135deg, rgba(15, 15, 35, 0.75), rgba(26, 26, 46, 0.85)), url('assets/slide/WhatsApp Image 2025-11-25 at 1.40.00 PM (2).jpeg') no-repeat center center/cover;"></div>
+          <div class="absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0 slide-bg" style="background: linear-gradient(135deg, rgba(15, 15, 35, 0.75), rgba(26, 26, 46, 0.85)), url('assets/slide/WhatsApp Image 2025-11-25 at 1.40.01 PM (1).jpeg') no-repeat center center/cover;"></div>
+          <div class="absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0 slide-bg" style="background: linear-gradient(135deg, rgba(15, 15, 35, 0.75), rgba(26, 26, 46, 0.85)), url('assets/slide/WhatsApp Image 2025-11-25 at 1.40.01 PM (2).jpeg') no-repeat center center/cover;"></div>
+          <div class="absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0 slide-bg" style="background: linear-gradient(135deg, rgba(15, 15, 35, 0.75), rgba(26, 26, 46, 0.85)), url('assets/slide/WhatsApp Image 2025-11-25 at 1.40.01 PM.jpeg') no-repeat center center/cover;"></div>
+        </div>
+
         <!-- Background Elements -->
-        <div class="absolute inset-0 overflow-hidden">
+        <div class="absolute inset-0 overflow-hidden pointer-events-none z-0">
           <div
             class="absolute top-1/4 left-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl float-animation"
           ></div>
@@ -853,8 +893,9 @@
           <!-- Main Heading -->
           <div class="mb-8">
             <h1
+              id="hero-title"
               data-aos="fade-down"
-              class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-7xl font-black mb-3 md:mb-6 leading-tight text-white text-shadow px-2"
+              class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-7xl font-black mb-3 md:mb-6 leading-tight text-white text-shadow px-2 transition-all duration-500"
             >
               Leading the charge towards
               <span class="gradient-text block mt-2"
@@ -870,9 +911,10 @@
 
           <!-- Description -->
           <p
+            id="hero-description"
             data-aos="fade-up"
             data-aos-delay="300"
-            class="text-lg sm:text-xl md:text-2xl max-w-4xl mx-auto mb-8 md:mb-12 text-slate-300 font-light leading-relaxed px-2"
+            class="text-lg sm:text-xl md:text-2xl max-w-4xl mx-auto mb-8 md:mb-12 text-slate-300 font-light leading-relaxed px-2 transition-all duration-500"
           >
             The Center of Research for Energy Efficiency and Decarbonization
             (CREED) at
@@ -1563,6 +1605,18 @@
             >
               CREED Faculty
             </button>
+            <button
+              data-team="staff"
+              class="team-filter-btn px-8 py-3 rounded-xl font-semibold transition-all duration-300 bg-slate-800/50 text-slate-300 hover:bg-slate-700/50 hover:text-white border border-slate-700"
+            >
+              Staff
+            </button>
+            <button
+              data-team="students"
+              class="team-filter-btn px-8 py-3 rounded-xl font-semibold transition-all duration-300 bg-slate-800/50 text-slate-300 hover:bg-slate-700/50 hover:text-white border border-slate-700"
+            >
+              Students
+            </button>
           </div>
 
           <!-- Team Grid -->
@@ -1575,117 +1629,158 @@
         </div>
       </section>
 
-      <!-- Modern News Section -->
-      <section id="news" class="py-24 modern-bg relative">
+      <!-- Modern Events Section -->
+      <section id="events" class="py-24 modern-bg relative">
         <div class="container mx-auto px-6 max-w-4xl">
           <!-- Section Header -->
           <div data-aos="fade-up" class="text-center mb-16">
             <div class="inline-block mb-4">
               <span
                 class="text-emerald-400 font-semibold text-lg tracking-wide uppercase"
-                >Latest News</span
+                >Events</span
               >
             </div>
             <h2
               class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6"
             >
-              Updates & <span class="gradient-text">Announcements</span>
+              Upcoming & <span class="gradient-text">Recent Events</span>
             </h2>
             <p class="text-xl text-slate-400 max-w-3xl mx-auto">
-              Stay informed about our latest developments and achievements
+              Stay informed about our latest workshops, lectures, and initiatives
             </p>
             <div
               class="w-24 h-1 bg-gradient-to-r from-emerald-400 to-blue-500 mx-auto mt-8"
             ></div>
           </div>
 
-          <!-- News Articles -->
-          <div class="space-y-8">
-            <article data-aos="fade-up" class="modern-card group">
-              <div class="flex items-start space-x-6">
-                <div
-                  class="w-16 h-16 bg-emerald-500/20 rounded-2xl flex items-center justify-center flex-shrink-0"
-                >
-                  <svg
-                    class="w-8 h-8 text-emerald-400"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
-                    ></path>
-                  </svg>
-                </div>
-                <div class="flex-1">
-                  <div class="flex items-center space-x-3 mb-3">
-                    <span
-                      class="px-3 py-1 bg-emerald-500/20 text-emerald-400 text-sm font-medium rounded-full"
-                      >New Initiative</span
-                    >
-                    <span class="text-slate-500 text-sm">March 2024</span>
-                  </div>
-                  <h3
-                    class="text-2xl font-bold text-white mb-3 group-hover:text-emerald-400 transition-colors"
-                  >
-                    CREED Launches Campus Energy Efficiency Program
-                  </h3>
-                  <p class="text-slate-300 leading-relaxed">
-                    A comprehensive new program aimed at promoting energy
-                    efficiency across all campus buildings, featuring smart
-                    monitoring systems and sustainable practices implementation.
-                  </p>
-                </div>
+          <!-- Events List -->
+          <div class="space-y-6">
+            <!-- Event 1 -->
+            <div data-aos="fade-up" class="modern-card group p-6 flex flex-col md:flex-row gap-6 items-start">
+              <div class="w-full md:w-32 flex-shrink-0 bg-slate-800/50 rounded-xl p-4 text-center border border-slate-700">
+                <span class="block text-3xl font-bold text-emerald-400">05-06</span>
+                <span class="block text-sm text-slate-400 uppercase tracking-wider">Oct 2024</span>
               </div>
-            </article>
+              <div>
+                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-emerald-400 transition-colors">
+                  Workshop on “Solar Energy Integration & Efficient Drive System”
+                </h3>
+                <p class="text-slate-300">A comprehensive workshop focusing on the integration of solar energy systems and efficient drive technologies.</p>
+              </div>
+            </div>
 
-            <article
-              data-aos="fade-up"
-              data-aos-delay="100"
-              class="modern-card group"
-            >
-              <div class="flex items-start space-x-6">
-                <div
-                  class="w-16 h-16 bg-blue-500/20 rounded-2xl flex items-center justify-center flex-shrink-0"
-                >
-                  <svg
-                    class="w-8 h-8 text-blue-400"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
-                    ></path>
-                  </svg>
-                </div>
-                <div class="flex-1">
-                  <div class="flex items-center space-x-3 mb-3">
-                    <span
-                      class="px-3 py-1 bg-blue-500/20 text-blue-400 text-sm font-medium rounded-full"
-                      >Workshop</span
-                    >
-                    <span class="text-slate-500 text-sm">Upcoming</span>
-                  </div>
-                  <h3
-                    class="text-2xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors"
-                  >
-                    Energy Efficiency Workshop Series
-                  </h3>
-                  <p class="text-slate-300 leading-relaxed">
-                    Join us for an intensive hands-on workshop series focusing
-                    on practical strategies to reduce energy consumption in
-                    industrial and commercial settings.
-                  </p>
-                </div>
+            <!-- Event 2 -->
+            <div data-aos="fade-up" data-aos-delay="50" class="modern-card group p-6 flex flex-col md:flex-row gap-6 items-start">
+              <div class="w-full md:w-32 flex-shrink-0 bg-slate-800/50 rounded-xl p-4 text-center border border-slate-700">
+                <span class="block text-3xl font-bold text-emerald-400">09-10</span>
+                <span class="block text-sm text-slate-400 uppercase tracking-wider">Nov 2024</span>
               </div>
-            </article>
+              <div>
+                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-emerald-400 transition-colors">
+                  Workshop on “Green Computing: Challenges, Opportunities and Recent Innovations"
+                </h3>
+                <p class="text-slate-300">Exploring the future of sustainable computing and energy-efficient digital infrastructure.</p>
+              </div>
+            </div>
+
+            <!-- Event 3 -->
+            <div data-aos="fade-up" data-aos-delay="100" class="modern-card group p-6 flex flex-col md:flex-row gap-6 items-start">
+              <div class="w-full md:w-32 flex-shrink-0 bg-slate-800/50 rounded-xl p-4 text-center border border-slate-700">
+                <span class="block text-3xl font-bold text-emerald-400">20</span>
+                <span class="block text-sm text-slate-400 uppercase tracking-wider">Aug 2025</span>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-emerald-400 transition-colors">
+                  Workshop on “COMSOL Multiphysics”
+                </h3>
+                <p class="text-slate-300">Hands-on training session on COMSOL Multiphysics simulation software for energy applications.</p>
+              </div>
+            </div>
+
+            <!-- Event 4 -->
+            <div data-aos="fade-up" data-aos-delay="150" class="modern-card group p-6 flex flex-col md:flex-row gap-6 items-start">
+              <div class="w-full md:w-32 flex-shrink-0 bg-slate-800/50 rounded-xl p-4 text-center border border-slate-700">
+                <span class="block text-3xl font-bold text-blue-400">MoU</span>
+                <span class="block text-sm text-slate-400 uppercase tracking-wider">Signed</span>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">
+                  MoU Signed between CREED & M/s. Greenfinch
+                </h3>
+                <p class="text-slate-300">Joining hands with Greenfinch to drive impactful initiatives in sustainability and energy efficiency.</p>
+              </div>
+            </div>
+
+            <!-- Event 5 -->
+            <div data-aos="fade-up" data-aos-delay="200" class="modern-card group p-6 flex flex-col md:flex-row gap-6 items-start">
+              <div class="w-full md:w-32 flex-shrink-0 bg-slate-800/50 rounded-xl p-4 text-center border border-slate-700">
+                <span class="block text-3xl font-bold text-emerald-400">15</span>
+                <span class="block text-sm text-slate-400 uppercase tracking-wider">Sep 2025</span>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-emerald-400 transition-colors">
+                  CREED Lecture Series- 1.0
+                </h3>
+                <p class="text-slate-300">Inaugural lecture of the CREED series featuring distinguished speakers in energy research.</p>
+              </div>
+            </div>
+
+            <!-- Event 6 -->
+            <div data-aos="fade-up" data-aos-delay="250" class="modern-card group p-6 flex flex-col md:flex-row gap-6 items-start">
+              <div class="w-full md:w-32 flex-shrink-0 bg-slate-800/50 rounded-xl p-4 text-center border border-slate-700">
+                <span class="block text-3xl font-bold text-blue-400">22</span>
+                <span class="block text-sm text-slate-400 uppercase tracking-wider">Sep 2025</span>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">
+                  MoU Signed between CREED & TBiF
+                </h3>
+                <p class="text-slate-300">Strategic partnership established to foster innovation and technology transfer.</p>
+              </div>
+            </div>
+
+            <!-- Event 7 -->
+            <div data-aos="fade-up" data-aos-delay="300" class="modern-card group p-6 flex flex-col md:flex-row gap-6 items-start">
+              <div class="w-full md:w-32 flex-shrink-0 bg-slate-800/50 rounded-xl p-4 text-center border border-slate-700">
+                <span class="block text-3xl font-bold text-emerald-400">06</span>
+                <span class="block text-sm text-slate-400 uppercase tracking-wider">Nov 2025</span>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-emerald-400 transition-colors">
+                  CREED Lecture Series – 2.0
+                </h3>
+                <p class="text-slate-300">Second installment of our lecture series exploring advanced topics in decarbonization.</p>
+              </div>
+            </div>
+
+            <!-- Event 8 -->
+            <div data-aos="fade-up" data-aos-delay="350" class="modern-card group p-6 flex flex-col md:flex-row gap-6 items-start">
+              <div class="w-full md:w-32 flex-shrink-0 bg-slate-800/50 rounded-xl p-4 text-center border border-slate-700">
+                <span class="block text-3xl font-bold text-emerald-400">07-08</span>
+                <span class="block text-sm text-slate-400 uppercase tracking-wider">Nov 2025</span>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-emerald-400 transition-colors">
+                  Workshop on “Demonstration of Technologies for Energy, waste management and Environmental sustainability”
+                </h3>
+                <p class="text-slate-300">Showcasing practical technologies for sustainable waste management and energy conservation.</p>
+              </div>
+            </div>
+
+            <!-- Event 9 -->
+            <div data-aos="fade-up" data-aos-delay="400" class="modern-card group p-6 flex flex-col md:flex-row gap-6 items-start">
+              <div class="w-full md:w-32 flex-shrink-0 bg-slate-800/50 rounded-xl p-4 text-center border border-slate-700">
+                <span class="block text-3xl font-bold text-emerald-400">13</span>
+                <span class="block text-sm text-slate-400 uppercase tracking-wider">Nov 2025</span>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-emerald-400 transition-colors">
+                  CREED Lecture Series – 3.0
+                </h3>
+                <p class="text-slate-300">Continuing the dialogue on energy efficiency with leading experts.</p>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
@@ -1756,7 +1851,7 @@
             <div data-aos="fade-right" class="modern-card">
               <form
                 id="contact-form"
-                action="mailto:mani@iitrpr.ac.in"
+                action="mailto:creed.office@iitrpr.ac.in"
                 method="post"
                 enctype="text/plain"
                 class="space-y-6"
@@ -1895,7 +1990,7 @@
                     </div>
                     <div>
                       <h4 class="font-semibold text-white mb-1">Phone</h4>
-                      <p class="text-slate-300">+91 98846-69570</p>
+                      <p class="text-slate-300">01881232631</p>
                     </div>
                   </div>
 
@@ -1919,7 +2014,7 @@
                     </div>
                     <div>
                       <h4 class="font-semibold text-white mb-1">Email</h4>
-                      <p class="text-slate-300">mani@iitrpr.ac.in</p>
+                      <p class="text-slate-300">creed.office@iitrpr.ac.in</p>
                     </div>
                   </div>
                 </div>
@@ -2078,7 +2173,7 @@
                     d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                   ></path>
                 </svg>
-                <p class="text-slate-400 text-sm">mani@iitrpr.ac.in</p>
+                <p class="text-slate-400 text-sm">creed.office@iitrpr.ac.in</p>
               </div>
               <div class="flex items-center space-x-3">
                 <svg
@@ -2094,7 +2189,7 @@
                     d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
                   ></path>
                 </svg>
-                <p class="text-slate-400 text-sm">+91 98846-69570</p>
+                <p class="text-slate-400 text-sm">01881232631</p>
               </div>
             </div>
           </div>
@@ -2243,6 +2338,81 @@
           });
         }
 
+        // --- Slideshow Logic ---
+        const slides = document.querySelectorAll('.slide-bg');
+        const heroTitle = document.getElementById('hero-title');
+        const heroDescription = document.getElementById('hero-description');
+        let currentSlide = 0;
+        const slideContent = [
+          {
+            title: 'CREED Lecture Series',
+            desc: 'Engaging talks by industry leaders and academic experts on the future of energy.'
+          },
+          {
+            title: 'CLS 1.0',
+            desc: 'CREED Lecture Series 1.0'
+          },
+          {
+            title: 'CLS 2.0',
+            desc: 'CREED Lecture Series 2.0'
+          },
+          {
+            title: 'CLS 2.0',
+            desc: 'Event Highlights'
+          },
+          {
+            title: 'CLS 2.0',
+            desc: 'Event Highlights'
+          },
+          {
+            title: 'CLS 2.0',
+            desc: 'Event Highlights'
+          },
+          {
+            title: 'CLS 2.0',
+            desc: 'Event Highlights'
+          },
+          {
+            title: 'CLS 2.0',
+            desc: 'Event Highlights'
+          },
+          {
+            title: 'CLS 2.0',
+            desc: 'Event Highlights'
+          }
+        ];
+
+        function nextSlide() {
+          // Fade out current
+          slides[currentSlide].style.opacity = '0';
+          
+          // Update index
+          currentSlide = (currentSlide + 1) % slides.length;
+          
+          // Fade in new
+          slides[currentSlide].style.opacity = '1';
+          
+          // Update text with fade effect
+          heroTitle.style.opacity = '0';
+          heroDescription.style.opacity = '0';
+          
+          setTimeout(() => {
+            // Update content
+            // Keep the "Leading the charge..." part static or change it? 
+            // The requirement says "Slide show of creed lecture series..."
+            // Let's update the text to reflect the slide
+            heroTitle.innerHTML = `<span class="gradient-text block mt-2">${slideContent[currentSlide].title}</span>`;
+            heroDescription.textContent = slideContent[currentSlide].desc;
+            
+            // Fade back in
+            heroTitle.style.opacity = '1';
+            heroDescription.style.opacity = '1';
+          }, 500);
+        }
+
+        // Start slideshow
+        setInterval(nextSlide, 5000);
+
         // --- Data ---
         const teamData = {
           creedFaculty: [
@@ -2253,7 +2423,7 @@
               img: "assets/Ph/Dr. Manigandan S.jpeg",
               bio: "Coordinates CREED initiatives focusing on sustainable energy research.",
               linkedin:
-                "https://www.linkedin.com/in/dr-manigandan-sabapathy-5b191b1a5/",
+                "https://www.linkedin.com/in/manigandan-sabapathy-34034978",
             },
             //2
             {
@@ -2378,6 +2548,63 @@
                 "https://www.linkedin.com/in/navaneeth-k-marath-378337177/",
             },
           ],
+          staff: [
+            {
+              name: "Prabhu V",
+              role: "Project manager",
+              img: "assets/staff/WhatsApp Image 2025-11-25 at 1.40.03 PM.jpeg",
+              bio: ""
+            },
+            {
+              name: "Hina Chaudhary",
+              role: "Staff assistant project manager",
+              img: "assets/staff/WhatsApp Image 2025-11-25 at 1.40.03 PM-2.jpeg",
+              bio: ""
+            },
+            {
+              name: "Shukwinder Singh",
+              role: "Energy manager",
+              img: "assets/staff/WhatsApp Image 2025-11-25 at 1.40.04 PM.jpeg",
+              bio: ""
+            },
+            {
+              name: "Vignesh K",
+              role: "Energy manager",
+              img: "assets/staff/WhatsApp Image 2025-11-25 at 1.40.04 PM-2.jpeg",
+              bio: ""
+            },
+            {
+              name: "Sumit Kumar Chaurasia",
+              role: "Energy assessment engineer",
+              img: "assets/staff/WhatsApp Image 2025-11-25 at 1.40.05 PM.jpeg",
+              bio: ""
+            },
+            {
+              name: "Kirit Prasad",
+              role: "Energy assessment engineer",
+              img: "assets/staff/WhatsApp Image 2025-11-25 at 2.55.30 PM.jpeg",
+              bio: ""
+            },
+            {
+              name: "Sitanshu Singh",
+              role: "Energy assessment engineer",
+              img: "assets/staff/WhatsApp Image 2025-12-06 at 4.33.33 PM.jpeg",
+              bio: ""
+            },
+            {
+              name: "Inderpreet Singh",
+              role: "Project assistant accounts",
+              img: "assets/staff/WhatsApp Image 2025-11-25 at 2.55.42 PM.jpeg",
+              bio: ""
+            },
+            {
+              name: "Sushil Verma",
+              role: "Office attendant",
+              img: "assets/staff/WhatsApp Image 2025-12-06 at 4.33.35 PM.jpeg",
+              bio: ""
+            }
+          ],
+          students: []
         };
         const faqData = [
           {
@@ -2491,6 +2718,17 @@
             ? 8
             : teamData[teamKey].length; // Limit on small screens
 
+          if (teamData[teamKey].length === 0) {
+            teamGrid.innerHTML = `
+              <div class="col-span-full text-center py-12">
+                <div class="inline-block p-6 rounded-2xl bg-slate-800/50 border border-slate-700">
+                  <p class="text-xl text-slate-400 font-medium">Information Not Available</p>
+                  <p class="text-slate-500 mt-2">This section is currently being updated.</p>
+                </div>
+              </div>`;
+            return;
+          }
+
           teamData[teamKey].slice(0, maxMembers).forEach((member, index) => {
             const delay = isMobile ? Math.min(index * 25, 200) : index * 50; // Reduce delay on mobile
             teamGrid.innerHTML += `
@@ -2523,10 +2761,10 @@
                                 }</p>
                                 ${
                                   member.bio
-                                    ? `<p class="text-slate-400 text-sm leading-relaxed">${member.bio}</p>`
-                                    : `<p class="text-slate-500 text-sm italic">Bio not available</p>`
+                                    ? `<p class="text-slate-400 text-sm leading-relaxed">${member.bio}</p>
+                                       <div class="w-full h-px bg-gradient-to-r from-transparent via-emerald-500/30 to-transparent mt-4"></div>`
+                                    : ``
                                 }
-                                <div class="w-full h-px bg-gradient-to-r from-transparent via-emerald-500/30 to-transparent mt-4"></div>
                             </div>
                         </div>`;
           });
@@ -2580,10 +2818,10 @@
                                 }</p>
                                 ${
                                   member.bio
-                                    ? `<p class="text-slate-400 text-sm leading-relaxed">${member.bio}</p>`
-                                    : `<p class="text-slate-500 text-sm italic">Bio not available</p>`
+                                    ? `<p class="text-slate-400 text-sm leading-relaxed">${member.bio}</p>
+                                       <div class="w-full h-px bg-gradient-to-r from-transparent via-emerald-500/30 to-transparent mt-4"></div>`
+                                    : ``
                                 }
-                                <div class="w-full h-px bg-gradient-to-r from-transparent via-emerald-500/30 to-transparent mt-4"></div>
                             </div>
                         </div>`;
           });
@@ -2721,7 +2959,9 @@
           formStatus.classList.add("hidden");
           const name = contactForm.name.value.trim();
           const email = contactForm.email.value.trim();
+          const subject = contactForm.subject.value.trim() || "Inquiry from Website";
           const message = contactForm.message.value.trim();
+          
           if (!name || !email || !message) {
             formStatus.textContent = "Please fill in all fields.";
             formStatus.classList.remove("text-green-400");
@@ -2729,30 +2969,43 @@
             formStatus.classList.remove("hidden");
             return;
           }
-          try {
-            const response = await fetch(contactForm.action, {
-              method: "POST",
-              body: new FormData(contactForm),
-            });
-            if (response.ok) {
-              formStatus.textContent = "Message sent successfully!";
-              formStatus.classList.remove("text-red-400");
-              formStatus.classList.add("text-green-400");
-              formStatus.classList.remove("hidden");
-              contactForm.reset();
-            } else {
-              throw new Error("Network response was not ok");
-            }
-          } catch (error) {
-            formStatus.textContent = "There was an error sending your message.";
-            formStatus.classList.remove("text-green-400");
-            formStatus.classList.add("text-red-400");
-            formStatus.classList.remove("hidden");
-          }
+
+          // Construct mailto link
+          const mailtoLink = `mailto:creed.office@iitrpr.ac.in?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
+            `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
+          )}`;
+
+          // Open email client
+          window.location.href = mailtoLink;
+
+          // Show success message
+          formStatus.textContent = "Opening your email client...";
+          formStatus.classList.remove("text-red-400");
+          formStatus.classList.add("text-green-400");
+          formStatus.classList.remove("hidden");
+          
+          setTimeout(() => {
+             contactForm.reset();
+             formStatus.classList.add("hidden");
+          }, 3000);
         });
 
         // Initial Render
         renderTeam("creedFaculty");
+
+        // Handle URL hash for deep linking to team filters
+        const hash = window.location.hash;
+        if (hash === "#staff") {
+            setTimeout(() => {
+                const btn = document.querySelector('[data-team="staff"]');
+                if (btn) btn.click();
+            }, 100);
+        } else if (hash === "#students" || hash === "#phd-students" || hash === "#masters") {
+            setTimeout(() => {
+                const btn = document.querySelector('[data-team="students"]');
+                if (btn) btn.click();
+            }, 100);
+        }
       });
     </script>
   </body>
